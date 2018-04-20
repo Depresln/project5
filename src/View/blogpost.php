@@ -2,7 +2,6 @@
 
 <?php ob_start(); ?>
 <?php
-require_once "../vendor/autoload.php";
 
 echo "Je suis un blogpost";
 ?>
