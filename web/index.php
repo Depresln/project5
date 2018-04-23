@@ -2,8 +2,8 @@
 
 require_once "../vendor/autoload.php";
 use App\Controller\DefaultController;
-use App\Controller\BlogListController;
-use App\Controller\BlogPostController;
+use App\Controller\ListController;
+use App\Controller\PostController;
 
 if (isset($_GET["page"]))
 {
@@ -14,13 +14,17 @@ if (isset($_GET["page"]))
     }
     elseif ($_GET["page"] === "bloglist")
     {
-        $controller = new BlogListController();
+        $controller = new ListController();
         $controller->bloglist();
     }
     elseif ($_GET["page"] === "blogpost")
     {
-        $controller = new BlogPostController();
-        $controller->blogpost();
+        $controller = new PostController();
+        $controller->index();
+    }
+    else
+    {
+        echo "Erreur  404";
     }
 } else
 {

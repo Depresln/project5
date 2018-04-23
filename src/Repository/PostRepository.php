@@ -6,14 +6,14 @@ namespace App\Repository;
  * Class PostRepository
  * @package App\Repository
  */
-class PostRepository
+class PostRepository extends DefaultRepository
 {
     /**
      * @return array
      */
     public function getAll()
     {
-        return ['toto', 'tata']; //acces db+recup
+        return ['']; //acces db+recup
     }
 
     /**

@@ -7,4 +7,4 @@ echo "Je suis un blogpost";
 ?>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php include('D:\Bureau\Mes Documents\Dev\project5\src\View\template.php'); ?>
