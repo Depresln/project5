@@ -9,11 +9,27 @@ namespace App\Repository;
 class PostRepository extends DefaultRepository
 {
     /**
+     * @var \PDO
+     */
+    private $dataBase;
+
+    /**
+     * PostRepository constructor.
+     */
+    public function __construct()
+    {
+        $this->dataBase = parent::DBConnect();
+    }
+
+    /**
      * @return array
      */
     public function getAll()
     {
-        return ['']; //acces db+recup
+        $answer = $this->dataBase->prepare("SELECT FROM WHERE");
+        $answer->bindParam('pseudo', $pseudo);
+
+        $answer->closeCursor();
     }
 
     /**
