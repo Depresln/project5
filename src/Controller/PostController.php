@@ -15,7 +15,9 @@ class PostController
     public function index()
     {
         $postRepository = new PostRepository();
-        $postList = $postRepository->getAll();
+        $postList = $postRepository->getByLimit(0, 10);
+        // foreach
+
         require "../src/View/Post/post_index.php";
     }
 

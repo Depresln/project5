@@ -8,19 +8,23 @@ namespace App\Repository;
  */
 abstract class DefaultRepository
 {
+    private $dataBase;
+
     /**
      * @return \PDO
      */
-    protected function DBConnect()
+    protected function getDB()
     {
-        try
-        {
-            $db = new \PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
-            return $db;
+        if ($this->dataBase === NULL) {
+            try
+            {
+                $this->dataBase = new \PDO('mysql:host=localhost;dbname=projet5;charset=utf8', 'root', '');
+            }
+            catch(Exception $e)
+            {
+                die('Erreur : '.$e->getMessage());
+            }
         }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+        return $this->dataBase;
     }
 }
