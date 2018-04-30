@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\Post;
 use App\Repository\PostRepository;
 
 /**
@@ -16,7 +17,14 @@ class PostController
     {
         $postRepository = new PostRepository();
         $postList = $postRepository->getByLimit(0, 10);
-        // foreach
+
+        foreach ($postList as $test) {
+            echo $test . '<br />';
+        }
+
+        $postList->closeCursor();
+
+
 
         require "../src/View/Post/post_index.php";
     }

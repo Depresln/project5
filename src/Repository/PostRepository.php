@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repository;
+use PDO;
 
 /**
  * Class PostRepository
@@ -8,21 +9,12 @@ namespace App\Repository;
  */
 class PostRepository extends DefaultRepository
 {
-
-    /**
-     * PostRepository constructor.
-     */
-    public function __construct()
-    {
-
-    }
-
     /**
      * @return array
      */
-    public function getAll()
+    public function validator()
     {
-        $this->getDB()->prepare("SELECT idpost, created_at, title, chapo, content, user_iduser FROM post");
+        ;
     }
 
     /**
@@ -38,6 +30,7 @@ class PostRepository extends DefaultRepository
 
         $req = $this->getDB()->prepare($requestString);
         // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)
+        //
         $req->bindParam(':start',$start, PDO::PARAM_INT);
         $req->bindParam(':end',$end, PDO::PARAM_INT);
         $req->execute();
@@ -46,12 +39,22 @@ class PostRepository extends DefaultRepository
 
         while ($post = $req->fetch())
         {
-            $newPost = new Post();
-            $newPost->setTitle($post['title']);
+            $newPost = new \App\Entity\Post();
+
+            $title = $post['title'];
+            $chapo = $post['chapo'];
+            $date = $post['date_fr'];
+
+            $newPost->setTitle($title);
+            $newPost->setChapo($chapo);
+            $newPost->setDate($date);
 
             $postList[] = $newPost;
-
-            // echo $dateFr . "&nbsp; <strong>" . $title . "</strong> : " . $chapo . "<br /><br />";
+            $postList = array(
+                'title' => $title,
+                'date' => $date,
+                'chapo' => $chapo
+            );
         }
 
         $req->closeCursor();
