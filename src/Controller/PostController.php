@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Post;
 use App\Repository\PostRepository;
 
 /**
@@ -15,27 +14,32 @@ class PostController
      */
     public function index()
     {
+        require "../src/View/Post/post_index.php";
+
         $postRepository = new PostRepository();
         $postList = $postRepository->getByLimit(0, 10);
 
-        foreach ($postList as $test) {
-            echo $test . '<br />';
+        foreach ($postList as $post){
+            echo $post;
+            ?> <br /><br />
+            <?php
         }
-
-        $postList->closeCursor();
-
-
-
-        require "../src/View/Post/post_index.php";
     }
 
     /**
      *
      */
-    public function show()
+    public function show($id)
     {
         require "../src/View/Post/post_show.php";
+
+        $postRepository = new PostRepository();
+        $postById = $postRepository->getById($id);
+        foreach ($postList as $post){
+            echo $post;
+            ?> <br /><br />
+            <?php
+        }
     }
-
-
 }
+?>
