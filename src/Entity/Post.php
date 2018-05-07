@@ -30,22 +30,35 @@ class Post
      */
     private $content;
 
+    /**
+     * Post constructor.
+     * @param $data
+     */
     public function __construct($data)
     {
         $this->hydrate($data);
     }
 
+    /**
+     * @param $toto
+     */
     private function hydrate($toto)
     {
         if (is_array($toto)){
-            if (isset($toto['idpost'])){
-                $this->idpost = $toto['idpost'];
+            if (isset($toto['id'])){
+                $this->idpost = $toto['id'];
             }
             if (isset($toto['title'])){
                 $this->title = $toto['title'];
             }
             if (isset($toto['chapo'])){
                 $this->chapo = $toto['chapo'];
+            }
+            if (isset($toto['date'])){
+                $this->date = $toto['date'];
+            }
+            if (isset($toto['content'])){
+                $this->date = $toto['content'];
             }
         }
     }

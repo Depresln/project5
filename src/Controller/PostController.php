@@ -29,15 +29,8 @@ class PostController
      */
     public function show($id)
     {
-        require "../src/View/Post/post_show.php";
-
         $postRepository = new PostRepository();
         $postById = $postRepository->getById($id);
-        foreach ($postList as $post){
-            echo $post;
-            ?> <br /><br />
-            <?php
-        }
+        require "../src/View/Post/post_show.php";
     }
 }
-?>

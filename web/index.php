@@ -13,12 +13,17 @@ if (isset($_GET["page"])) {
     } elseif ($_GET["page"] === "bloglist") {
         $controller = new PostController();
         $controller->index();
-    } elseif ($_GET["page"] === is_int("id")) {
-        $id = $_GET['id'];
+    } else {
+        echo "Erreur  404";
+    }
+} elseif (isset($_GET["id"])) {
+    if ($_GET["id"]) {
+        $id = $_GET["id"];
+
         $controller = new PostController();
         $controller->show($id);
     } else {
-        echo "Erreur  404";
+        echo "Bug2";
     }
 } else {
     echo "Erreur  404";
