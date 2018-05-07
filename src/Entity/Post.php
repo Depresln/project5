@@ -30,6 +30,26 @@ class Post
      */
     private $content;
 
+    public function __construct($data)
+    {
+        $this->hydrate($data);
+    }
+
+    private function hydrate($toto)
+    {
+        if (is_array($toto)){
+            if (isset($toto['idpost'])){
+                $this->idpost = $toto['idpost'];
+            }
+            if (isset($toto['title'])){
+                $this->title = $toto['title'];
+            }
+            if (isset($toto['chapo'])){
+                $this->chapo = $toto['chapo'];
+            }
+        }
+    }
+
     /**
      * @param $idpost
      */
@@ -51,7 +71,7 @@ class Post
     }
 
     /**
-     * @param $chapo
+     * @param string $chapo
      */
     public function setChapo($chapo)
     {
@@ -118,12 +138,6 @@ class Post
         return $this->content;
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return '<a href="?post=' . $this->idpost . '">' . $this->title . '</a> - ' . $this->chapo . ' - ' . $this->date;
-    }
+
 
 }

@@ -13,7 +13,7 @@ if (isset($_GET["page"])) {
     } elseif ($_GET["page"] === "bloglist") {
         $controller = new PostController();
         $controller->index();
-    } elseif ($_GET["post"] === is_int("id")) {
+    } elseif ($_GET["page"] === is_int("id")) {
         $id = $_GET['id'];
         $controller = new PostController();
         $controller->show($id);

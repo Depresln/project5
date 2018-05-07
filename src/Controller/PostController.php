@@ -14,16 +14,14 @@ class PostController
      */
     public function index()
     {
-        require "../src/View/Post/post_index.php";
+
 
         $postRepository = new PostRepository();
         $postList = $postRepository->getByLimit(0, 10);
 
-        foreach ($postList as $post){
-            echo $post;
-            ?> <br /><br />
-            <?php
-        }
+        require "../src/View/Post/post_index.php";
+
+
     }
 
     /**

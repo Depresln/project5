@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Repository;
+use App\Service\ValidatorService;
 use PDO;
+use App\Entity\Post;
 
 /**
  * Class PostRepository
@@ -9,15 +11,6 @@ use PDO;
  */
 class PostRepository extends DefaultRepository
 {
-    /**
-     * @return array
-     */
-    public function validator()
-    {
-        $string = mysqli_real_escape_string($req);
-        $string = addcslashes($req, '%_');
-    }
-
     /**
      * @param $id
      */
@@ -29,6 +22,10 @@ class PostRepository extends DefaultRepository
         $limit = 'LIMIT :start, :end';
         $requestString = $select . ' ' . $from . ' ' . $order . ' ' . $limit;
 
+        $validatorService = new ValidatorService();
+        $start = $validatorService->bindParamValidate($start);
+        $end = $validatorService->bindParamValidate($end);
+
         $req = $this->getDB()->prepare($requestString);
         // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)
 
@@ -38,18 +35,18 @@ class PostRepository extends DefaultRepository
 
         $postList = [];
 
-        while ($post = $req->fetch())
+        while ($dataRow = $req->fetch())
         {
-            $idpost = $post['idpost'];
-            $title = $post['title'];
-            $chapo = $post['chapo'];
-            $date = $post['date_fr'];
+//            $idpost = $post['idpost'];
+//            $title = $post['title'];
+//            $chapo = $post['chapo'];
+//            $date = $post['date_fr'];
 
-            $newPost = new \App\Entity\Post();
-            $newPost->setId($idpost);
-            $newPost->setTitle($title);
-            $newPost->setChapo($chapo);
-            $newPost->setDate($date);
+            $newPost = new Post($dataRow);
+//            $newPost->setId($idpost);
+//            $newPost->setTitle($title);
+//            $newPost->setChapo($chapo);
+//            $newPost->setDate($date);
 
             $postList[] = $newPost;
         }
@@ -86,7 +83,7 @@ class PostRepository extends DefaultRepository
             $date = $post['date_fr'];
             $content = $post['content'];
 
-            $newPost = new \App\Entity\Post();
+            $newPost = new Post();
             $newPost->setId($idpost);
             $newPost->setTitle($title);
             $newPost->setChapo($chapo);
