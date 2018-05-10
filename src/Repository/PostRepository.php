@@ -48,7 +48,7 @@ class PostRepository extends DefaultRepository
      */
     public function getById($id)
     {
-        $select = 'SELECT id, title, chapo, content, DATE_FORMAT(created_at, "%d/%m/%Y %Hh%im%ss") AS date_fr';
+        $select = 'SELECT id, title, chapo, content, DATE_FORMAT(created_at, "%d/%m/%Y %Hh%im%ss") AS date';
         $from = 'FROM post';
         $where = 'WHERE :id = id';
         $requestString = $select . ' ' . $from . ' ' . $where;

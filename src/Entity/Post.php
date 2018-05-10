@@ -58,7 +58,7 @@ class Post
                 $this->date = $toto['date'];
             }
             if (isset($toto['content'])){
-                $this->date = $toto['content'];
+                $this->content = $toto['content'];
             }
         }
     }
