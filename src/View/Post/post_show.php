@@ -4,7 +4,7 @@
 
     /** @var \App\Entity\Post $post */
     foreach ($postById as $post) {
-        echo "Je suis un post d'id " . $post->getIdPost() . " créé le " . $post->getDate() . "<br /><br />" . $post->getContent();
+        echo "<h2>" . $post->getTitle() . "</h2><br />Je suis un post d'id " . $post->getIdPost() . " créé le " . $post->getDate() . "<br /><br />" . $post->getContent();
     }
 
     $content = ob_get_clean();

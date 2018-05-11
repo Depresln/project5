@@ -40,25 +40,25 @@ class Post
     }
 
     /**
-     * @param $toto
+     * @param $data
      */
-    private function hydrate($toto)
+    private function hydrate($data)
     {
-        if (is_array($toto)){
-            if (isset($toto['id'])){
-                $this->idpost = $toto['id'];
+        if (is_array($data)){
+            if (isset($data['id'])){
+                $this->idpost = $data['id'];
             }
-            if (isset($toto['title'])){
-                $this->title = $toto['title'];
+            if (isset($data['title'])){
+                $this->title = $data['title'];
             }
-            if (isset($toto['chapo'])){
-                $this->chapo = $toto['chapo'];
+            if (isset($data['chapo'])){
+                $this->chapo = $data['chapo'];
             }
-            if (isset($toto['date'])){
-                $this->date = $toto['date'];
+            if (isset($data['date'])){
+                $this->date = $data['date'];
             }
-            if (isset($toto['content'])){
-                $this->content = $toto['content'];
+            if (isset($data['content'])){
+                $this->content = $data['content'];
             }
         }
     }
