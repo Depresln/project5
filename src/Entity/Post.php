@@ -11,7 +11,7 @@ class Post
     /**
      * @var
      */
-    private $idpost;
+    private $id;
     /**
      * @var
      */
@@ -44,32 +44,22 @@ class Post
      */
     private function hydrate($data)
     {
-        if (is_array($data)){
-            if (isset($data['id'])){
-                $this->idpost = $data['id'];
+        if (is_array($data)) {
+            if (isset($data['id'])) {
+                $this->id = $data['id'];
             }
-            if (isset($data['title'])){
+            if (isset($data['title'])) {
                 $this->title = $data['title'];
             }
-            if (isset($data['chapo'])){
+            if (isset($data['chapo'])) {
                 $this->chapo = $data['chapo'];
             }
-            if (isset($data['date'])){
+            if (isset($data['date'])) {
                 $this->date = $data['date'];
             }
-            if (isset($data['content'])){
+            if (isset($data['content'])) {
                 $this->content = $data['content'];
             }
-        }
-    }
-
-    /**
-     * @param $idpost
-     */
-    public function setId($idpost)
-    {
-        if (is_int($idpost)) {
-            $this->idpost = $idpost;
         }
     }
 
@@ -114,9 +104,9 @@ class Post
     /**
      * @return mixed
      */
-    public function getIdpost()
+    public function getId()
     {
-        return $this->idpost;
+        return $this->id;
     }
 
     /**
@@ -150,7 +140,4 @@ class Post
     {
         return $this->content;
     }
-
-
-
 }

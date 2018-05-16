@@ -8,9 +8,10 @@ class CommentRepository extends DefaultRepository
 {
     public function getByDate()
     {
-        $select = '';
+        $select = 'SELECT id, content, DATE_FORMAT(created_at, "%d/%m/%Y %Hh%im%ss") AS date, ';
         $from = '';
+        $join = '';
         $order = '';
-        $requestString = $select . ' ' . $from . ' ' . $order;
+        $requestString = $select . ' ' . $from . ' ' . $join . ' ' . $order;
     }
 }

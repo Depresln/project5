@@ -11,7 +11,7 @@ class Comment
     /**
      * @var
      */
-    private $idComment;
+    private $id;
     /**
      * @var
      */
@@ -39,28 +39,20 @@ class Comment
      */
     public function hydrate($data)
     {
-        if(is_array($data)){
-            if(isset($data['id'])){
+        if (is_array($data)) {
+            if (isset($data['id'])) {
                 $this->idComment = $data['id'];
             }
-            if(isset($data['author'])){
+            if (isset($data['author'])) {
                 $this->author = $data['author'];
             }
-            if(isset($data['date'])){
+            if (isset($data['date'])) {
                 $this->date = $data['date'];
             }
-            if(isset($data['content'])){
+            if (isset($data['content'])) {
                 $this->content = $data['content'];
             }
         }
-    }
-
-    /**
-     * @param $idComment
-     */
-    public function setIdComment($idComment)
-    {
-        $this->idComment = $idComment;
     }
 
     /**

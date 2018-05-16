@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Repository;
-use App\Service\ValidatorService;
+
+use App\Model\DefaultRepository;
 use PDO;
+use App\Service\ValidatorService;
 use App\Entity\Post;
 
 /**
@@ -27,14 +29,13 @@ class PostRepository extends DefaultRepository
         $end = $validatorService->bindParamValidate($end);
 
         $req = $this->getDB()->prepare($requestString);
-        $req->bindParam(':start',$start, PDO::PARAM_INT);
-        $req->bindParam(':end',$end, PDO::PARAM_INT);
+        $req->bindParam(':start', $start, PDO::PARAM_INT);
+        $req->bindParam(':end', $end, PDO::PARAM_INT);
         $req->execute();
 
         $postList = [];
 
-        while ($dataRow = $req->fetch())
-        {
+        while ($dataRow = $req->fetch()) {
             $newPost = new Post($dataRow);
             $postList[] = $newPost;
         }
@@ -56,13 +57,12 @@ class PostRepository extends DefaultRepository
         $req = $this->getDB()->prepare($requestString);
         // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)
 
-        $req->bindParam(':id',$id, PDO::PARAM_INT);
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
         $req->execute();
 
         $postById = [];
 
-        while ($post = $req->fetch())
-        {
+        while ($post = $req->fetch()) {
             $newPost = new Post($post);
             $postById[] = $newPost;
         }

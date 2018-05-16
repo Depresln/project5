@@ -17,9 +17,9 @@ if (isset($_GET["page"])) {
         echo "Erreur  404";
     }
 } elseif (isset($_GET["id"])) {
-        $id = $_GET["id"];
-        $controller = new PostController();
-        $controller->show($id);
-    } else {
-        echo "Erreur  404";
-    }
+    $id = $_GET["id"];
+    $controller = new PostController();
+    $controller->show($id);
+} else {
+    echo "Erreur  404";
+}

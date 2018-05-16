@@ -7,13 +7,13 @@
 
 <?php
     /** @var \App\Entity\Post $post */
-    foreach ($postList as $post){
-        echo "<a href='?id=" . $post->getIdpost() . "'>" . $post->getTitle() . "</a> ";
+    foreach ($postList as $post) {
+        echo "<a href='?page=post.show&id=" . $post->getId() . "'>" . $post->getTitle() . "</a> ";
         echo $post->getDate() . "<br />";
         echo $post->getChapo() . "<br /><br />";
     }
 
     $content = ob_get_clean();
 
-    include('D:\Bureau\Mes Documents\Dev\project5\src\View\template.php');
+    include('..\src\View\template.php');
 ?>
