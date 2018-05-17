@@ -15,7 +15,7 @@ class ValidatorService
     {
         if (isset($param)) {
             if (is_int($param)) {
-                return $param;
+                return htmlspecialchars($param);
             } else {
                 echo 'Paramètre incorrect';
             }

@@ -3,7 +3,6 @@
 require_once "../vendor/autoload.php";
 
 use App\Controller\DefaultController;
-use App\Controller\ListController;
 use App\Controller\PostController;
 
 if (isset($_GET["page"])) {
@@ -13,13 +12,17 @@ if (isset($_GET["page"])) {
     } elseif ($_GET["page"] === "bloglist") {
         $controller = new PostController();
         $controller->index();
+    } elseif ($_GET["page"] === "page.show") {
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+            $controller = new PostController();
+            $controller->show($id);
+        } else {
+            echo "Erreur 500";
+        }
     } else {
         echo "Erreur  404";
     }
-} elseif (isset($_GET["id"])) {
-    $id = $_GET["id"];
-    $controller = new PostController();
-    $controller->show($id);
 } else {
     echo "Erreur  404";
 }
