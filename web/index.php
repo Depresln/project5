@@ -12,7 +12,7 @@ if (isset($_GET["page"])) {
     } elseif ($_GET["page"] === "bloglist") {
         $controller = new PostController();
         $controller->index();
-    } elseif ($_GET["page"] === "page.show") {
+    } elseif ($_GET["page"] === "post.show") {
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
             $controller = new PostController();
