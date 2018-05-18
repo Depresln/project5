@@ -41,7 +41,7 @@ class Comment
     {
         if (is_array($data)) {
             if (isset($data['id'])) {
-                $this->idComment = $data['id'];
+                $this->id = $data['id'];
             }
             if (isset($data['author'])) {
                 $this->author = $data['author'];
@@ -84,7 +84,7 @@ class Comment
      */
     public function getIdComment()
     {
-        return $this->idComment;
+        return $this->id;
     }
 
     /**
