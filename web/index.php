@@ -9,7 +9,7 @@ if (isset($_GET["page"])) {
     if ($_GET["page"] === "default.home") {
         $controller = new DefaultController();
         $controller->home();
-    } elseif ($_GET["page"] === "bloglist") {
+    } elseif ($_GET["page"] === "post.index") {
         $controller = new PostController();
         $controller->index();
     } elseif ($_GET["page"] === "post.show") {

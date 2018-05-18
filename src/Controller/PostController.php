@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\PostRepository;
+use App\Repository\CommentRepository;
 
 /**
  * Class PostController
@@ -27,6 +28,8 @@ class PostController
     {
         $postRepository = new PostRepository();
         $postById = $postRepository->getById($id);
+        $commentRepository = new CommentRepository();
+        $commentByDate = $commentRepository->getByDate();
         require "../src/View/Post/post_show.php";
     }
 }
