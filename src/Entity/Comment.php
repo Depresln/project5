@@ -9,25 +9,25 @@ namespace App\Entity;
 class Comment
 {
     /**
-     * @var
+     * @var integer
      */
     private $id;
     /**
-     * @var
+     * @var string
      */
     private $author;
     /**
-     * @var
+     * @var \DateTime
      */
     private $date;
     /**
-     * @var
+     * @var string
      */
     private $content;
 
     /**
      * Comment constructor.
-     * @param $data
+     * @param array $data
      */
     public function __construct($data)
     {
@@ -35,7 +35,7 @@ class Comment
     }
 
     /**
-     * @param $data
+     * @param array $data
      */
     public function hydrate($data)
     {
@@ -56,7 +56,7 @@ class Comment
     }
 
     /**
-     * @param $author
+     * @param string $author
      */
     public function setAuthor($author)
     {
@@ -64,7 +64,7 @@ class Comment
     }
 
     /**
-     * @param $date
+     * @param \DateTime $date
      */
     public function setDate($date)
     {
@@ -72,7 +72,7 @@ class Comment
     }
 
     /**
-     * @param $content
+     * @param string $content
      */
     public function setContent($content)
     {
