@@ -29,7 +29,7 @@ class PostController
         $postRepository = new PostRepository();
         $postById = $postRepository->getById($id);
         $commentRepository = new CommentRepository();
-        $commentByDate = $commentRepository->getByDate();
+        $commentByDate = $commentRepository->getByDate($id);
         require "../src/View/Post/post_show.php";
     }
 }
