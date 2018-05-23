@@ -4,6 +4,7 @@ require_once "../vendor/autoload.php";
 
 use App\Controller\DefaultController;
 use App\Controller\PostController;
+use App\Controller\ErrorController;
 
 if (isset($_GET["page"])) {
     if ($_GET["page"] === "default.home") {
@@ -18,11 +19,14 @@ if (isset($_GET["page"])) {
             $controller = new PostController();
             $controller->show($id);
         } else {
-            echo "Erreur 500";
+            $controller = new ErrorController();
+            $controller->error500();
         }
     } else {
-        echo "Erreur  404";
+        $controller = new ErrorController();
+        $controller->error404();
     }
 } else {
-    echo "Erreur  404";
+    $controller = new ErrorController();
+    $controller->error404();
 }

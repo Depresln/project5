@@ -23,4 +23,13 @@ class ValidatorService
             echo "Paramètre incorrect.";
         }
     }
+
+    public function commentIdValidate($id)
+    {
+        if (isset($id)){
+            return $id;
+        } else {
+            echo "Pas de commentaire trouvé.";
+        }
+    }
 }
