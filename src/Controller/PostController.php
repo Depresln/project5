@@ -22,7 +22,7 @@ class PostController
     }
 
     /**
-     *
+     * Return associated posts and comments
      */
     public function show($id)
     {

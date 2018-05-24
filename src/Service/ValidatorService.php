@@ -14,10 +14,12 @@ class ValidatorService
     public function bindParamValidate($param)
     {
         if (isset($param)) {
-            if (is_int($param)) {
+            $pattern = '/^(?:[0-9]|0[0-9]|10)$/';
+            $checkParam = preg_match($pattern, $param, $matches);
+            if($checkParam == TRUE){
                 return $param;
             } else {
-                echo 'Paramètre incorrect';
+                echo "Paramètre incorrect.";
             }
         } else {
             echo "Paramètre incorrect.";

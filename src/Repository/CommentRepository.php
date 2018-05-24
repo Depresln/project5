@@ -6,8 +6,15 @@ use PDO;
 use App\Model\DefaultRepository;
 use App\Entity\Comment;
 
+/**
+ * Class CommentRepository
+ * @package App\Repository
+ */
 class CommentRepository extends DefaultRepository
 {
+    /**
+     * @param $id
+     */
     public function checkId($id)
     {
         $select = 'SELECT id';
@@ -27,6 +34,10 @@ class CommentRepository extends DefaultRepository
 
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public function getByDate($id)
     {
         $select = 'SELECT c.content, DATE_FORMAT(c.created_at, "%d/%m/%Y %Hh%im%ss") AS date, c.post_id';
