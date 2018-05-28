@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\PostRepository;
 use App\Repository\CommentRepository;
+use App\Controller\ErrorController;
 
 /**
  * Class PostController
@@ -27,12 +28,14 @@ class PostController
     public function show($id)
     {
         $postRepository = new PostRepository();
-        $postById = $postRepository->getById($id);
-
-        $commentRepository = new CommentRepository();
-        $checkId = $commentRepository->checkId($id);
-
-        $commentByDate = $commentRepository->getByDate($id);
-        require "../src/View/Post/post_show.php";
+        $post = $postRepository->getById($id);
+        if ($post){
+            $commentRepository = new CommentRepository();
+            $commentByDate = $commentRepository->getByDate($id);
+            require "../src/View/Post/post_show.php";
+        } else {
+            $controller = new ErrorController();
+            $controller->error404();
+        }
     }
 }

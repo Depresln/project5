@@ -58,17 +58,11 @@ class PostRepository extends DefaultRepository
         // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)
 
         $req->bindParam(':id', $id, PDO::PARAM_INT);
-        $req->execute();
-
-        $postById = [];
-
-        while ($post = $req->fetch()) {
-            $newPost = new Post($post);
-            $postById[] = $newPost;
-        }
+        $success = $req->execute();
+        $row = $req->fetch();
 
         $req->closeCursor();
 
-        return $postById;
+        return $row ? new Post($row) : false;
     }
 }

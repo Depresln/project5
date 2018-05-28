@@ -34,4 +34,14 @@ class ValidatorService
             echo "Pas de commentaire trouvé.";
         }
     }
+
+    public function paramIssetNotEmpty($param)
+    {
+        if (isset($param)){
+            if (!empty($param)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
