@@ -4,6 +4,7 @@ require_once "../vendor/autoload.php";
 
 use App\Controller\DefaultController;
 use App\Controller\PostController;
+use App\Controller\AuthenticationController;
 use App\Controller\ErrorController;
 
 try{
@@ -23,6 +24,12 @@ try{
                 $controller = new ErrorController();
                 $controller->error404();
             }
+        } elseif ($_GET["page"] === "authentication.register") {
+            $controller = new AuthenticationController();
+            $controller->getRegisterView();
+        } elseif ($_GET["page"] === "authentication.check") {
+            $controller = new AuthenticationController();
+            $controller->checkCredentials();
         } else {
             $controller = new ErrorController();
             $controller->error404();
