@@ -12,27 +12,27 @@ use App\Entity\Comment;
  */
 class CommentRepository extends DefaultRepository
 {
-    /**
-     * @param $id
-     */
-    public function checkId($id)
-    {
-        $select = 'SELECT id';
-        $from = 'FROM post';
-        $requestString = $select . ' ' . $from;
-
-        $req = $this->getDB()->query($requestString);
-        $result = $req->fetch();
-
-        $resultId = $result['id'];
-
-        if($id === $resultId){
-            echo "ca marche";
-        } else {
-            echo "Le post recherché n'existe pas.";
-        }
-
-    }
+//    /**
+//     * @param $id
+//     */
+//    public function checkId($id)
+//    {
+//        $select = 'SELECT id';
+//        $from = 'FROM post';
+//        $requestString = $select . ' ' . $from;
+//
+//        $req = $this->getDB()->query($requestString);
+//        $result = $req->fetch();
+//
+//        $resultId = $result['id'];
+//
+//        if($id === $resultId){
+//            echo "ca marche";
+//        } else {
+//            echo "Le post recherché n'existe pas.";
+//        }
+//
+//    }
 
     /**
      * @param $id

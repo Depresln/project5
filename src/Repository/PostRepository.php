@@ -56,6 +56,8 @@ class PostRepository extends DefaultRepository
 
         $req = $this->getDB()->prepare($requestString);
         // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)
+//        $mysqli = new ValidatorService();
+//        $mysqli->checkContent($req);
 
         $req->bindParam(':id', $id, PDO::PARAM_INT);
         $success = $req->execute();
