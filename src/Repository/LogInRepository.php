@@ -31,12 +31,12 @@ class LogInRepository extends DefaultRepository
             $resultPass = $resultat['password'];
             $resultId = $resultat['id'];
 
-            if (password_verify($pass, $resultPass)) {
+//            if (password_verify($pass, $resultPass)) {
+            if ($pass == $resultPass) {
                 session_start();
                 $_SESSION['id'] = $resultId;
                 $_SESSION['pseudo'] = $pseudo;
-//                header('Location: ?page=default.home.php');
-                echo "Vous êtes connecté !";
+                header('Location: ?page=default.home');
             } else {
                 echo 'Mauvais identifiant ou mot de passe1 !'; ?>
                 <br /><a href="?page=authentication.login">Retour à la connexion</a>
