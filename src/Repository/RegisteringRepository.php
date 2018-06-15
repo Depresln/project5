@@ -5,10 +5,10 @@ namespace App\Repository;
 use App\Model\DefaultRepository;
 
 /**
- * Class AuthenticationRepository
+ * Class RegisteringRepository
  * @package App\Repository
  */
-class AuthenticationRepository extends DefaultRepository
+class RegisteringRepository extends DefaultRepository
 {
     /**
      * @param $firstName
@@ -45,36 +45,20 @@ class AuthenticationRepository extends DefaultRepository
                 echo 'Cette adresse mail est déjà utilisée.';
                 $req2->closeCursor();
             } else {
-                $insert = 'INSERT INTO user';
+                $insert = 'INSERT INTO projet5.user';
                 $values = 'VALUES(NULL, NOW(), :first_name, :last_name, :pseudo, :email, :password, 0)';
                 $requestString = $insert . ' ' . $values;
 
                 $req3 = $this->getDB()->prepare($requestString);
-                $req3->bindValue(':first_name', $firstName);
-                $req3->bindValue(':last_name', $lastName);
-                $req3->bindValue(':pseudo', $pseudo);
-                $req3->bindValue(':email', $email);
-                $req3->bindValue(':password', $pass_hache);
+                $req3->bindValue('first_name', $firstName);
+                $req3->bindValue('last_name', $lastName);
+                $req3->bindValue('pseudo', $pseudo);
+                $req3->bindValue('email', $email);
+                $req3->bindValue('password', $pass_hache);
                 $req3->execute();
-
+//                header('Location: ?page=authentication.login.php');
                 echo "Insertion faite";
             }
         }
-    }
-
-    /**
-     *
-     */
-    public function logIn()
-    {
-
-    }
-
-    /**
-     *
-     */
-    public function logOut()
-    {
-
     }
 }

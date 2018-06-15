@@ -3,7 +3,7 @@ $title  = 'Nicolas Depresles';
 ob_start();
 ?>
 
-<form action="?page=authentication.check" method="post">
+<form action="?page=authentication.checkregister" method="post">
     <p>
         <label for="first_name">Prénom</label> : <input type="text" name="first_name" id="firstName" required /><br />
         <label for="last_name">Nom</label> : <input type="text" name="last_name" id="lastName" required /><br />
