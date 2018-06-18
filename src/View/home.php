@@ -1,18 +1,16 @@
 <?php
-session_start();
-$title  = 'Nicolas Depresles';
+    session_start();
+    $title  = 'Nicolas Depresles';
 ?>
 
 <?php ob_start(); ?>
     <?php
         require_once "../vendor/autoload.php";
 
-        echo "Je suis l'accueil";
-
-        if(session_status() == PHP_SESSION_NONE) {
-            echo "Pas de session";
+        if(isset($_SESSION['pseudo'])) {
+            echo "Bonjour " . $_SESSION['pseudo'] . "<br /><a href='?page=authentication.logout'>Se déconnecter.</a> ";
         } else {
-            echo "<br /> Bonjour " . $_SESSION['pseudo'];
+            echo "Je suis l'accueil<br /> <a href='?page=authentication.login'>Se connecter.</a>";
         }
     ?>
 <?php $content = ob_get_clean(); ?>

@@ -1,6 +1,6 @@
 <?php
-$title  = 'Nicolas Depresles';
-ob_start();
+    $title  = 'Nicolas Depresles';
+    ob_start();
 ?>
 
     <form action="?page=authentication.checklogin" method="post">
@@ -15,7 +15,7 @@ ob_start();
     <a href="?page=authentication.register">Créer un compte.</a>
 
 <?php
-$content = ob_get_clean();
+    $content = ob_get_clean();
 
-include('..\src\View\template.php');
+    include('..\src\View\template.php');
 ?>

@@ -45,7 +45,7 @@ class AuthenticationRepository extends DefaultRepository
                 echo 'Cette adresse mail est déjà utilisée.';
                 $req2->closeCursor();
             } else {
-                $insert = 'INSERT INTO projet5.user';
+                $insert = 'INSERT INTO user (id, registered_at, first_name, last_name, pseudo, email, password, is_admin)';
                 $values = 'VALUES(NULL, NOW(), :first_name, :last_name, :pseudo, :email, :password, 0)';
                 $requestString = $insert . ' ' . $values;
 
@@ -58,6 +58,7 @@ class AuthenticationRepository extends DefaultRepository
                 $req3->execute();
 //                header('Location: ?page=authentication.login.php');
                 echo "Insertion faite";
+                $req3->closeCursor();
             }
         }
     }
@@ -73,17 +74,19 @@ class AuthenticationRepository extends DefaultRepository
         $req->bindParam('pseudo', $pseudo);
         $req->execute();
 
-        $resultat = $req->fetch();
+        $result = $req->fetch();
 
-        if ($resultat) {
-            $resultPass = $resultat['password'];
-            $resultId = $resultat['id'];
+        if ($result) {
+            $resultPass = $result['password'];
 
 //            if (password_verify($pass, $resultPass)) {
             if ($pass == $resultPass) {
+                $resultId = $result['id'];
+                $resultAdmin = $result['is_admin'];
                 session_start();
                 $_SESSION['id'] = $resultId;
                 $_SESSION['pseudo'] = $pseudo;
+                $_SESSION['is_admin'] = $resultAdmin;
                 header('Location: ?page=default.home');
             } else {
                 echo 'Mauvais identifiant ou mot de passe1 !'; ?>

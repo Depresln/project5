@@ -37,6 +37,9 @@ try{
         } elseif ($_GET["page"] === "authentication.checklogin") {
             $controller = new AuthenticationController();
             $controller->checkLogs();
+        } elseif ($_GET["page"] === "authentication.logout") {
+            $controller = new AuthenticationController();
+            $controller->logOut();
         } else {
             $controller = new ErrorController();
             $controller->error404();

@@ -58,4 +58,9 @@ class AuthenticationController
         $checkLogs = new AuthenticationRepository();
         $checkLogs->logIn($pseudo, $pass);
     }
+
+    public function logOut()
+    {
+        require "../src/View/Authentication/log_out.php";
+    }
 }
