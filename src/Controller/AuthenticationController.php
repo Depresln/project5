@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
-use App\Repository\RegisteringRepository;
+use App\Repository\AuthenticationRepository;
 
 /**
- * Class RegisteringController
+ * Class AuthenticationController
  * @package App\Controller
  */
-class RegisteringController
+class AuthenticationController
 {
     /**
      *  Return View
@@ -32,10 +32,30 @@ class RegisteringController
 
         if ($pass == $pass2) {
             $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
-            $checkLogs = new RegisteringRepository();
+            $checkLogs = new AuthenticationRepository();
             $checkLogs->setLogs($firstName, $lastName, $pseudo, $pass_hache, $email);
         } else {
             echo 'Les mots de passe saisis doivent être identiques.';
         }
+    }
+
+    /**
+     * Return View
+     */
+    public function getLogInView()
+    {
+        require "../src/View/Authentication/log_in.php";
+    }
+
+    /**
+     *
+     */
+    public function checkLogs()
+    {
+        $pseudo = $_POST['pseudo'];
+        $pass = $_POST['pass'];
+
+        $checkLogs = new AuthenticationRepository();
+        $checkLogs->logIn($pseudo, $pass);
     }
 }

@@ -5,10 +5,10 @@ namespace App\Repository;
 use App\Model\DefaultRepository;
 
 /**
- * Class RegisteringRepository
+ * Class AuthenticationRepository
  * @package App\Repository
  */
-class RegisteringRepository extends DefaultRepository
+class AuthenticationRepository extends DefaultRepository
 {
     /**
      * @param $firstName
@@ -59,6 +59,41 @@ class RegisteringRepository extends DefaultRepository
 //                header('Location: ?page=authentication.login.php');
                 echo "Insertion faite";
             }
+        }
+    }
+
+    public function logIn($pseudo, $pass)
+    {
+        $select = 'SELECT *';
+        $from = 'FROM user';
+        $where = 'WHERE pseudo = :pseudo';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam('pseudo', $pseudo);
+        $req->execute();
+
+        $resultat = $req->fetch();
+
+        if ($resultat) {
+            $resultPass = $resultat['password'];
+            $resultId = $resultat['id'];
+
+//            if (password_verify($pass, $resultPass)) {
+            if ($pass == $resultPass) {
+                session_start();
+                $_SESSION['id'] = $resultId;
+                $_SESSION['pseudo'] = $pseudo;
+                header('Location: ?page=default.home');
+            } else {
+                echo 'Mauvais identifiant ou mot de passe1 !'; ?>
+                <br /><a href="?page=authentication.login">Retour à la connexion</a>
+                <?php
+            }
+        } else {
+            echo 'Mauvais identifiant ou mot de passe2 !'; ?>
+            <br /><a href="?page=authentication.login">Retour à la connexion</a>
+            <?php
         }
     }
 }
