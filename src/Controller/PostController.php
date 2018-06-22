@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\PostRepository;
 use App\Repository\CommentRepository;
-use App\Controller\ErrorController;
 
 /**
  * Class PostController
@@ -37,5 +36,20 @@ class PostController
             $controller = new ErrorController();
             $controller->error404();
         }
+    }
+
+    public function createPostView()
+    {
+        require "../src/View/Post/post_create.php";
+    }
+
+    public function checkCreation()
+    {
+        $title = $_POST['title'];
+        $chapo = $_POST['chapo'];
+        $content = $_POST['content'];
+
+        $postCreation = new PostRepository();
+        $postCreation->addPost($title, $chapo, $content);
     }
 }

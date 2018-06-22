@@ -5,7 +5,6 @@ require_once "../vendor/autoload.php";
 use App\Controller\DefaultController;
 use App\Controller\PostController;
 use App\Controller\AuthenticationController;
-use App\Controller\LogInController;
 use App\Controller\ErrorController;
 
 try{
@@ -25,6 +24,12 @@ try{
                 $controller = new ErrorController();
                 $controller->error404();
             }
+        } elseif ($_GET["page"] === "post.create") {
+            $controller = new PostController();
+            $controller->createPostView();
+        } elseif ($_GET["page"] === "post.checkcreation") {
+            $controller = new PostController();
+            $controller->checkCreation();
         } elseif ($_GET["page"] === "authentication.register") {
             $controller = new AuthenticationController();
             $controller->getRegisterView();
