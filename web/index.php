@@ -27,6 +27,9 @@ try{
         } elseif ($_GET["page"] === "post.create") {
             $controller = new PostController();
             $controller->createPostView();
+        } elseif ($_GET["page"] === "post.delete") {
+            $controller = new PostController();
+            $controller->deletePost();
         } elseif ($_GET["page"] === "post.checkcreation") {
             $controller = new PostController();
             $controller->checkCreation();

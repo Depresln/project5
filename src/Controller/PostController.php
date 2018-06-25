@@ -52,4 +52,10 @@ class PostController
         $postCreation = new PostRepository();
         $postCreation->addPost($title, $chapo, $content);
     }
+
+    public function deletePost()
+    {
+        $postDeletion = new PostRepository();
+
+    }
 }
