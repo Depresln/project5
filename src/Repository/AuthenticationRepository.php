@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Model\DefaultRepository;
+use PDO;
 
 /**
  * Class AuthenticationRepository
@@ -19,31 +20,31 @@ class AuthenticationRepository extends DefaultRepository
      */
     public function setLogs($firstName, $lastName, $pseudo, $pass_hache, $email)
     {
-        $select = 'SELECT pseudo';
+        $select = 'SELECT *';
         $from = 'FROM user';
-        $requestString = $select . ' ' . $from;
+        $where = 'WHERE pseudo = :pseudo';
+        $requestString = $select . ' ' . $from . ' ' . $where;
 
-        $req = $this->getDB()->query($requestString);
-        $result = $req->fetch();
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':pseudo',$pseudo,PDO::PARAM_STR);
+        $req->execute();
 
-        $resultPseudo = $result['pseudo'];
-
-        if (strtolower($pseudo) == strtolower($resultPseudo)) {
-            echo 'Ce nom d\'utilisateur est déjà utilisé.';
+        if($data = $req->fetch(PDO::FETCH_ASSOC)){
+            echo "Ce nom d'utilisateur est déjà utilisé.<br /> <a href='?page=authentication.register'>Retour à la création de compte</a>";
             $req->closeCursor();
         } else {
-            $select = 'SELECT email';
+            $select = 'SELECT *';
             $from = 'FROM user';
-            $requestString = $select . ' ' . $from;
+            $where = 'WHERE email = :email';
+            $requestString = $select . ' ' . $from . ' ' . $where;
 
-            $req2 = $this->getDB()->query($requestString);
-            $result2 = $req2->fetch();
+            $req = $this->getDB()->prepare($requestString);
+            $req->bindParam(':email',$email,PDO::PARAM_STR);
+            $req->execute();
 
-            $resultEmail = $result2['email'];
-
-            if (strtolower($email) == strtolower($resultEmail)) {
-                echo 'Cette adresse mail est déjà utilisée.';
-                $req2->closeCursor();
+            if($data = $req->fetch(PDO::FETCH_ASSOC)){
+                echo "Cette adresse email est déjà utilisée.<br /> <a href='?page=authentication.register'>Retour à la création de compte</a>";
+                $req->closeCursor();
             } else {
                 $insert = 'INSERT INTO user';
                 $values = 'VALUES(NULL, NOW(), :first_name, :last_name, :pseudo, :email, :password, 0)';
