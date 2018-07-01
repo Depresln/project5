@@ -68,7 +68,7 @@ class PostRepository extends DefaultRepository
         return $row ? new Post($row) : false;
     }
 
-    public function addPost($title, $chapo, $content)
+    public function addPost($title, $chapo, $content, $id)
     {
         $select = 'SELECT *';
         $from = 'FROM post';
@@ -83,14 +83,14 @@ class PostRepository extends DefaultRepository
             echo "Le titre de ce post existe déjà.<br /> <a href='?page=post.create'>Retour à la création de post</a>";
         } else {
             $insert = 'INSERT INTO post';
-            $values = 'VALUES(NULL, NOW(), :title, :chapo, :content, :id';
+            $values = 'VALUES(NULL, NOW(), :title, :chapo, :content, :id)';
             $requestString = $insert . ' ' . $values;
 
             $req = $this->getDB()->prepare($requestString);
             $req->bindParam(':title',$title);
             $req->bindParam(':chapo',$chapo);
             $req->bindParam(':content',$content);
-            $req->bindParam(':id',$_SESSION['id']);
+            $req->bindParam(':id',$id);
             $req->execute();
 
             echo "Post ajouté avec succès !";

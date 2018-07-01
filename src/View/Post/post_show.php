@@ -1,5 +1,4 @@
 <?php
-    session_start();
     $title  = 'Nicolas Depresles';
     ob_start();
 

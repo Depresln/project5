@@ -16,7 +16,7 @@
 
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
-            echo "Ajouter un post";
+            echo "<a href='?page=post.create'>Ajouter un post</a>";
         } else {
             echo "Vous n'avez aucun droit";
         }

@@ -7,8 +7,8 @@
         <meta name="description" content="Nicolas Depresles - Développeur d'applications PHP/Symfony">
         <meta name="author" content="Nicolas Depresles">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="../public/img/shortcon.png" type="image/x-icon"/>
-        <link rel="icon" href="../public/img/shortcon.png" type="image/x-icon"/>
+        <link rel="shortcut icon" href="asssets/img/shortcon.png" type="image/x-icon"/>
+        <link rel="icon" href="assets/img/shortcon.png" type="image/x-icon"/>
 
         <title><?= $title ?></title>
 

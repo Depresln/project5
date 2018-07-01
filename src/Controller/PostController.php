@@ -48,9 +48,10 @@ class PostController
         $title = $_POST['title'];
         $chapo = $_POST['chapo'];
         $content = $_POST['content'];
+        $id = $_POST['id'];
 
         $postCreation = new PostRepository();
-        $postCreation->addPost($title, $chapo, $content);
+        $postCreation->addPost($title, $chapo, $content, $id);
     }
 
     public function deletePost()

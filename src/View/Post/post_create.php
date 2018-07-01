@@ -12,6 +12,7 @@
                     <label for="title">Titre</label> : <input type="text" name="title" id="title" required /><br />
                     <label for="chapo">Description</label> : <input type="text" name="chapo" id="chapo" required /><br />
                     <label for="content">Contenu</label> : <textarea name="content" id="content" required></textarea><br />
+                    <input type="hidden" name="id" value="<?=$_SESSION['id']?>" />
 
                     <input type="submit" value="Poster l'article" />
                 </p>

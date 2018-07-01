@@ -45,19 +45,18 @@ class AuthenticationRepository extends DefaultRepository
                 echo 'Cette adresse mail est déjà utilisée.';
                 $req2->closeCursor();
             } else {
-                $insert = 'INSERT INTO user (id, registered_at, first_name, last_name, pseudo, email, password, is_admin)';
-                $values = 'VALUES(NULL, NOW(), "test", "test", "abc", "mail@t", "lol", 0)';
+                $insert = 'INSERT INTO user';
+                $values = 'VALUES(NULL, NOW(), :first_name, :last_name, :pseudo, :email, :password, 0)';
                 $requestString = $insert . ' ' . $values;
 
                 $req3 = $this->getDB()->prepare($requestString);
-//                $req3->bindValue('first_name', $firstName);
-//                $req3->bindValue('last_name', $lastName);
-//                $req3->bindValue('pseudo', $pseudo);
-//                $req3->bindValue('email', $email);
-//                $req3->bindValue('password', $pass_hache);
+                $req3->bindParam(':first_name', $firstName);
+                $req3->bindParam(':last_name', $lastName);
+                $req3->bindParam(':pseudo', $pseudo);
+                $req3->bindParam(':email', $email);
+                $req3->bindParam(':password', $pass_hache);
                 $req3->execute();
 //                header('Location: ?page=authentication.login.php');
-                var_dump($req3);
                 echo "Insertion faite";
                 $req3->closeCursor();
             }
@@ -80,8 +79,7 @@ class AuthenticationRepository extends DefaultRepository
         if ($result) {
             $resultPass = $result['password'];
 
-//            if (password_verify($pass, $resultPass)) {
-            if ($pass == $resultPass) {
+            if (password_verify($pass, $resultPass)) {
                 $resultId = $result['id'];
                 $resultAdmin = $result['is_admin'];
                 session_start();
