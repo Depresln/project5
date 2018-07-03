@@ -28,8 +28,23 @@ try{
             $controller = new PostController();
             $controller->createPostView();
         } elseif ($_GET["page"] === "post.delete") {
-            $controller = new PostController();
-            $controller->deletePost();
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new PostController();
+                $controller->deletePostView();
+            } else {
+                $controller = new ErrorController();
+                $controller->error404();
+            }
+        } elseif ($_GET["page"] === "post.deletion") {
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new PostController();
+                $controller->postDelete($id);
+            } else {
+                $controller = new ErrorController();
+                $controller->error404();
+            }
         } elseif ($_GET["page"] === "post.checkcreation") {
             $controller = new PostController();
             $controller->checkCreation();

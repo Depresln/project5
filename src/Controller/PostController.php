@@ -52,11 +52,23 @@ class PostController
 
         $postCreation = new PostRepository();
         $postCreation->addPost($title, $chapo, $content, $id);
+        header("Location: ?page=post.index");
     }
 
-    public function deletePost()
+    public function deletePostView()
     {
-        $postDeletion = new PostRepository();
+        require "../src/View/Post/post_delete.php";
+    }
 
+    public function postDelete($id)
+    {
+        session_start();
+        if(isset($_SESSION['pseudo'])) {
+            if ($_SESSION['is_admin'] == TRUE) {
+                $postDeletion = new PostRepository();
+                $postDeletion->deletePost($id);
+                header("Location: ?page=post.index");
+            }
+        }
     }
 }

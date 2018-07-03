@@ -93,8 +93,25 @@ class PostRepository extends DefaultRepository
             $req->bindParam(':id',$id);
             $req->execute();
 
-            echo "Post ajouté avec succès !";
-            $req->closeCursor();
+            session_start();
+            $_SESSION['addSuccess'] = "true";
         }
+    }
+
+    public function deletePost($id)
+    {
+        $delete = 'DELETE';
+        $from = 'FROM comment';
+        $where = 'WHERE post_id = :id';
+        $fromPost = 'FROM post';
+        $wherePost = 'WHERE id = :id';
+        $requestString = $delete . ' ' . $from . ' ' . $where . '; ' . $delete . ' ' . $fromPost . ' ' . $wherePost;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id',$id,PDO::PARAM_STR);
+        $req->execute();
+
+        session_start();
+        $_SESSION['deleteSuccess'] = "true";
     }
 }
