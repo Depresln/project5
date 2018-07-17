@@ -4,6 +4,7 @@ require_once "../vendor/autoload.php";
 
 use App\Controller\DefaultController;
 use App\Controller\PostController;
+use App\Controller\CommentController;
 use App\Controller\AuthenticationController;
 use App\Controller\ErrorController;
 
@@ -24,9 +25,27 @@ try{
                 $controller = new ErrorController();
                 $controller->error404();
             }
-        } elseif ($_GET["page"] === "post.create") {
+        }
+
+        // Posts
+        elseif ($_GET["page"] === "post.create") {
             $controller = new PostController();
             $controller->createPostView();
+        } elseif ($_GET["page"] === "post.checkcreation") {
+            $controller = new PostController();
+            $controller->checkCreation();
+        } elseif ($_GET["page"] === "post.edit") {
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new PostController();
+                $controller->editPostView($id);
+            } else {
+                $controller = new ErrorController();
+                $controller->error404();
+            }
+        } elseif ($_GET["page"] === "post.checkedit") {
+            $controller = new PostController();
+            $controller->checkEdit();
         } elseif ($_GET["page"] === "post.delete") {
             if (isset($_GET["id"])) {
                 $id = $_GET["id"];
@@ -45,10 +64,31 @@ try{
                 $controller = new ErrorController();
                 $controller->error404();
             }
-        } elseif ($_GET["page"] === "post.checkcreation") {
-            $controller = new PostController();
-            $controller->checkCreation();
-        } elseif ($_GET["page"] === "authentication.register") {
+        }
+
+        //Comments
+        elseif ($_GET["page"] === "comment.add") {
+            $controller = new CommentController();
+            $controller->addCommentView();
+        } elseif ($_GET["page"] === "comment.checkcreation") {
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new CommentController();
+                $controller->checkCommentCreation($id);
+            }
+        } elseif ($_GET["page"] === "comment.delete") {
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new CommentController();
+                $controller->commentDelete($id);
+            } else {
+                $controller = new ErrorController();
+                $controller->error404();
+            }
+        }
+
+        //Authentication
+        elseif ($_GET["page"] === "authentication.register") {
             $controller = new AuthenticationController();
             $controller->getRegisterView();
         } elseif ($_GET["page"] === "authentication.checkregister") {

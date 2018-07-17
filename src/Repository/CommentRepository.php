@@ -12,28 +12,6 @@ use App\Entity\Comment;
  */
 class CommentRepository extends DefaultRepository
 {
-//    /**
-//     * @param $id
-//     */
-//    public function checkId($id)
-//    {
-//        $select = 'SELECT id';
-//        $from = 'FROM post';
-//        $requestString = $select . ' ' . $from;
-//
-//        $req = $this->getDB()->query($requestString);
-//        $result = $req->fetch();
-//
-//        $resultId = $result['id'];
-//
-//        if($id === $resultId){
-//            echo "ca marche";
-//        } else {
-//            echo "Le post recherché n'existe pas.";
-//        }
-//
-//    }
-
     /**
      * @param $id
      * @return array
@@ -62,5 +40,21 @@ class CommentRepository extends DefaultRepository
         }
 
         return $commentList;
+    }
+
+    public function addComment($content, $id, $idSession)
+    {
+        $insert = 'INSERT INTO comment';
+        $values = 'VALUES(NULL, NOW(), :content, :post_id, :post_user_id)';
+        $requestString = $insert . ' ' . $values;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':content',$content);
+        $req->bindParam(':post_id',$id);
+        $req->bindParam(':post_user_id',$idSession);
+        $req->execute();
+
+        session_start();
+        $_SESSION['addSuccess'] = "true";
     }
 }
