@@ -47,4 +47,11 @@ class CommentController
             header("Location: ?page=post.show&id=" . $_SESSION['previous']);
         }
     }
+
+    public function commentValidate($id)
+    {
+        $commentRepository = new CommentRepository();
+        $commentRepository->validateComment($id);
+        header("Location: ?page=post.administration");
+    }
 }

@@ -18,12 +18,13 @@ class CommentRepository extends DefaultRepository
      */
     public function getByDate($id)
     {
-        $select = 'SELECT c.id, c.post_user_id AS author, c.content, DATE_FORMAT(c.created_at, "%d/%m/%Y %Hh%im%ss") AS date, c.post_id';
+        $select = 'SELECT c.id, c.post_user_id AS author, c.content, DATE_FORMAT(c.created_at, "%d/%m/%Y %Hh%im%ss") AS date, c.post_id, c.validation';
         $from = 'FROM comment AS c';
         $join = 'JOIN post ON post.id = c.post_id';
         $where = 'WHERE c.post_id = :id';
+        $and = 'AND c.validation = 1';
         $order = 'ORDER BY date DESC';
-        $requestString = $select . ' ' . $from . ' ' . $join . ' ' . $where . ' ' . $order;
+        $requestString = $select . ' ' . $from . ' ' . $join . ' ' . $where . ' ' . $and . ' ' . $order;
 
         $validatorService = new ValidatorService();
         $id = $validatorService->commentIdValidate($id);
@@ -50,7 +51,7 @@ class CommentRepository extends DefaultRepository
     public function addComment($content, $id, $idSession)
     {
         $insert = 'INSERT INTO comment';
-        $values = 'VALUES(NULL, NOW(), :content, :post_id, :post_user_id)';
+        $values = 'VALUES(NULL, NOW(), :content, :post_id, :post_user_id, 0)';
         $requestString = $insert . ' ' . $values;
 
         $req = $this->getDB()->prepare($requestString);
@@ -76,5 +77,37 @@ class CommentRepository extends DefaultRepository
 
         session_start();
         $_SESSION['deleteSuccess'] = "true";
+    }
+
+    public function getByValidation()
+    {
+        $select = 'SELECT id, created_at, content, post_id, post_user_id, validation';
+        $from = 'FROM comment';
+        $where = 'WHERE validation = 0';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->execute();
+
+        $commentList = [];
+
+        while ($dataRow = $req->fetch()) {
+            $newComment = new Comment($dataRow);
+            $commentList[] = $newComment;
+        }
+
+        return $commentList;
+    }
+
+    public function validateComment($id)
+    {
+        $update = 'UPDATE comment';
+        $set = 'SET validation = 1';
+        $where = 'WHERE id = :id';
+        $requestString = $update . ' ' . $set . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id',$id,PDO::PARAM_STR);
+        $req->execute();
     }
 }

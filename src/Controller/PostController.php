@@ -79,4 +79,13 @@ class PostController
         $fieldValues->getById($id);
         require "../src/View/Post/post_edit.php";
     }
+
+    public function adminSpaceView()
+    {
+        $commentRepository = new CommentRepository();
+        $commentList = $commentRepository->getByValidation();
+        if ($commentList) {
+            require "../src/View/Administration/admin_space.php";
+        }
+    }
 }

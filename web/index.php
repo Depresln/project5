@@ -28,6 +28,21 @@ try{
             }
         }
 
+        // Administration
+        elseif ($_GET["page"] === "post.administration") {
+            $controller = new PostController();
+            $controller->adminSpaceView();
+        } elseif ($_GET["page"] === "comment.validate") {
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new CommentController();
+                $controller->commentValidate($id);
+            } else {
+                $controller = new ErrorController();
+                $controller->error404();
+            }
+        }
+
         // Posts
         elseif ($_GET["page"] === "post.create") {
             $controller = new PostController();
