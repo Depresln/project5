@@ -18,7 +18,7 @@ class CommentRepository extends DefaultRepository
      */
     public function getByDate($id)
     {
-        $select = 'SELECT c.content, DATE_FORMAT(c.created_at, "%d/%m/%Y %Hh%im%ss") AS date, c.post_id';
+        $select = 'SELECT c.id, c.post_user_id AS author, c.content, DATE_FORMAT(c.created_at, "%d/%m/%Y %Hh%im%ss") AS date, c.post_id';
         $from = 'FROM comment AS c';
         $join = 'JOIN post ON post.id = c.post_id';
         $where = 'WHERE c.post_id = :id';
@@ -42,6 +42,11 @@ class CommentRepository extends DefaultRepository
         return $commentList;
     }
 
+    /**
+     * @param $content
+     * @param $id
+     * @param $idSession
+     */
     public function addComment($content, $id, $idSession)
     {
         $insert = 'INSERT INTO comment';
@@ -56,5 +61,20 @@ class CommentRepository extends DefaultRepository
 
         session_start();
         $_SESSION['addSuccess'] = "true";
+    }
+
+    public function deleteComment($id)
+    {
+        $delete = 'DELETE';
+        $from = 'FROM comment';
+        $where = 'WHERE id = :id';
+        $requestString = $delete . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id',$id,PDO::PARAM_STR);
+        $req->execute();
+
+        session_start();
+        $_SESSION['deleteSuccess'] = "true";
     }
 }

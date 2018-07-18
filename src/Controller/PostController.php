@@ -72,15 +72,11 @@ class PostController
         }
     }
 
-    public function editPostView($id)
+    public function editPostView()
     {
-        $postRepository = new PostRepository();
-        $post = $postRepository->getById($id);
-        if ($post) {
-            $title = $post->getTitle();
-            $chapo = $post->getChapo();
-            $content = $post->getContent();
-            require "../src/View/Post/post_edit.php";
-        }
+        $id = $_GET['id'];
+        $fieldValues = new PostRepository();
+        $fieldValues->getById($id);
+        require "../src/View/Post/post_edit.php";
     }
 }

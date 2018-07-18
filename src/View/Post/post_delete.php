@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    $title  = 'Nicolas Depresles';
-    ob_start();
+session_start();
+$title  = 'Nicolas Depresles';
+ob_start();
 
     echo "Je suis un post d'id " . $_GET['id'] . "<br />";
 
@@ -12,6 +12,7 @@
             echo "<a href='?page=post.index'>Non</a>";
         }
     }
-    $content = ob_get_clean();
+
+$content = ob_get_clean();
 
 include('..\src\View\template.php');

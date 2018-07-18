@@ -68,6 +68,12 @@ class PostRepository extends DefaultRepository
         return $row ? new Post($row) : false;
     }
 
+    /**
+     * @param $title
+     * @param $chapo
+     * @param $content
+     * @param $id
+     */
     public function addPost($title, $chapo, $content, $id)
     {
         $select = 'SELECT *';
@@ -98,6 +104,9 @@ class PostRepository extends DefaultRepository
         }
     }
 
+    /**
+     * @param $id
+     */
     public function deletePost($id)
     {
         $delete = 'DELETE';
@@ -113,5 +122,19 @@ class PostRepository extends DefaultRepository
 
         session_start();
         $_SESSION['deleteSuccess'] = "true";
+    }
+
+    public function editPost($id)
+    {
+        $select = 'SELECT id, title, chapo, content';
+        $from = 'FROM post';
+        $where = 'WHERE id = :id';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id', $id, PDO::PARAM_STR);
+        $req->execute();
+
+
     }
 }

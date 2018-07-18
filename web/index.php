@@ -10,6 +10,7 @@ use App\Controller\ErrorController;
 
 try{
     if (isset($_GET["page"])) {
+        // Core navigation
         if ($_GET["page"] === "default.home") {
             $controller = new DefaultController();
             $controller->home();
@@ -38,7 +39,7 @@ try{
             if (isset($_GET["id"])) {
                 $id = $_GET["id"];
                 $controller = new PostController();
-                $controller->editPostView($id);
+                $controller->editPostView();
             } else {
                 $controller = new ErrorController();
                 $controller->error404();
@@ -77,6 +78,15 @@ try{
                 $controller->checkCommentCreation($id);
             }
         } elseif ($_GET["page"] === "comment.delete") {
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new CommentController();
+                $controller->deleteCommentView();
+            } else {
+                $controller = new ErrorController();
+                $controller->error404();
+            }
+        } elseif ($_GET["page"] === "comment.deletion") {
             if (isset($_GET["id"])) {
                 $id = $_GET["id"];
                 $controller = new CommentController();

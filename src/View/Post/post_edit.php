@@ -9,9 +9,9 @@
             ?>
             <form action="?page=post.checkedit" method="post">
                 <p>
-                    <label for="title">Titre</label> : <input type="text" name="title" id="title" value="<?php $title ?>" required /><br />
-                    <label for="chapo">Description</label> : <input type="text" name="chapo" id="chapo" value="<?php $post->getChapo() ?>" required /><br />
-                    <label for="content">Contenu</label> : <textarea name="content" id="content" required><?php $post->getContent() ?></textarea><br />
+                    <label for="title">Titre</label> : <input type="text" name="title" id="title" value="<?= $post->getTitle() ?>" required /><br />
+                    <label for="chapo">Description</label> : <input type="text" name="chapo" id="chapo" value="test" required /><br />
+                    <label for="content">Contenu</label> : <textarea name="content" id="content" required></textarea><br />
                     <input type="hidden" name="id" value="<?=$_SESSION['id']?>" />
 
                     <input type="submit" value="Editer l'article" />
