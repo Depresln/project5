@@ -9,7 +9,7 @@
     // Comment successfully added
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
-            echo "Commentaire ajouté avec succès !<br /><br />";
+            echo "Commentaire ajouté avec succès ! En attente de validation...<br /><br />";
             $_SESSION['addSuccess'] = "false";
         }
     }
