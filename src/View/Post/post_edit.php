@@ -7,11 +7,11 @@
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             ?>
-            <form action="?page=post.checkedit" method="post">
+            <form action="?page=post.checkedit&id=<?= $_GET['id'] ?>" method="post">
                 <p>
                     <label for="title">Titre</label> : <input type="text" name="title" id="title" value="<?= $post->getTitle() ?>" required /><br />
-                    <label for="chapo">Description</label> : <input type="text" name="chapo" id="chapo" value="test" required /><br />
-                    <label for="content">Contenu</label> : <textarea name="content" id="content" required></textarea><br />
+                    <label for="chapo">Description</label> : <input type="text" name="chapo" id="chapo" value="<?= $post->getChapo() ?>" required /><br />
+                    <label for="content">Contenu</label> : <textarea name="content" id="content" required><?= $post->getContent() ?></textarea><br />
                     <input type="hidden" name="id" value="<?=$_SESSION['id']?>" />
 
                     <input type="submit" value="Editer l'article" />

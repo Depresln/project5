@@ -134,7 +134,23 @@ class PostRepository extends DefaultRepository
         $req = $this->getDB()->prepare($requestString);
         $req->bindParam(':id', $id, PDO::PARAM_STR);
         $req->execute();
+    }
 
+    public function updatePost($id, $title, $chapo, $content)
+    {
+        $update = 'UPDATE post';
+        $set = 'SET title = :title, chapo = :chapo, content = :content';
+        $where = 'WHERE id = :id';
+        $requestString = $update . ' ' . $set . ' ' . $where;
 
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id', $id, PDO::PARAM_STR);
+        $req->bindParam(':title', $title, PDO::PARAM_STR);
+        $req->bindParam(':chapo', $chapo, PDO::PARAM_STR);
+        $req->bindParam(':content', $content, PDO::PARAM_STR);
+        $req->execute();
+
+        session_start();
+        $_SESSION['editSuccess'] = "true";
     }
 }

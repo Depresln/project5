@@ -60,8 +60,14 @@ try{
                 $controller->error404();
             }
         } elseif ($_GET["page"] === "post.checkedit") {
-            $controller = new PostController();
-            $controller->checkEdit();
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+                $controller = new PostController();
+                $controller->checkEdit($id);
+            } else {
+                $controller = new ErrorController();
+                $controller->error404();
+            }
         } elseif ($_GET["page"] === "post.delete") {
             if (isset($_GET["id"])) {
                 $id = $_GET["id"];

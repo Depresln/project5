@@ -76,8 +76,18 @@ class PostController
     {
         $id = $_GET['id'];
         $fieldValues = new PostRepository();
-        $fieldValues->getById($id);
+        $post = $fieldValues->getById($id);
         require "../src/View/Post/post_edit.php";
+    }
+
+    public function checkEdit($id)
+    {
+        $title = $_POST['title'];
+        $chapo = $_POST['chapo'];
+        $content = $_POST['content'];
+        $editPost = new PostRepository();
+        $editPost->updatePost($id, $title, $chapo, $content);
+        header("Location: ?page=post.index");
     }
 
     public function adminSpaceView()

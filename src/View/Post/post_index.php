@@ -25,6 +25,15 @@
         }
     }
 
+    if(isset($_SESSION['pseudo'])){
+        if($_SESSION['is_admin'] == TRUE){
+            if(isset($_SESSION['editSuccess']) && $_SESSION['editSuccess'] == "true"){
+                echo "Post edité avec succès !<br /><br />";
+                $_SESSION['editSuccess'] = "false";
+            }
+        }
+    }
+
     /** @var \App\Entity\Post $post */
     foreach ($postList as $post) {
         echo "<a href='?page=post.show&id=" . $post->getId() . "'>" . $post->getTitle() . "</a> ";
