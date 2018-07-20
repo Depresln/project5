@@ -2,11 +2,10 @@
     session_start();
     $title  = 'Nicolas Depresles';
     ob_start();
-?>
 
-<h2>Post List</h2>
+    echo '<h2>Post List</h2>';
 
-<?php
+    // Message for post deletion successful
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
@@ -16,6 +15,7 @@
         }
     }
 
+    // Message for post addition successful
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
@@ -25,6 +25,7 @@
         }
     }
 
+    // Message for post edition successful
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             if(isset($_SESSION['editSuccess']) && $_SESSION['editSuccess'] == "true"){
@@ -34,6 +35,7 @@
         }
     }
 
+    // Post index
     /** @var \App\Entity\Post $post */
     foreach ($postList as $post) {
         echo "<a href='?page=post.show&id=" . $post->getId() . "'>" . $post->getTitle() . "</a> ";
@@ -46,6 +48,7 @@
         }
     }
 
+    // Add a post
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             echo "<a href='?page=post.create'>Ajouter un post</a>";
@@ -55,4 +58,3 @@
     $content = ob_get_clean();
 
     include('..\src\View\template.php');
-?>

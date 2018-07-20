@@ -38,11 +38,17 @@ class PostController
         }
     }
 
+    /**
+     * Return post creation view
+     */
     public function createPostView()
     {
         require "../src/View/Post/post_create.php";
     }
 
+    /**
+     * Post creation
+     */
     public function checkCreation()
     {
         $title = $_POST['title'];
@@ -55,11 +61,17 @@ class PostController
         header("Location: ?page=post.index");
     }
 
+    /**
+     * Return delete post view
+     */
     public function deletePostView()
     {
         require "../src/View/Post/post_delete.php";
     }
 
+    /**
+     * @param $id
+     */
     public function postDelete($id)
     {
         session_start();
@@ -72,6 +84,9 @@ class PostController
         }
     }
 
+    /**
+     * Return post edit view
+     */
     public function editPostView()
     {
         $id = $_GET['id'];
@@ -80,6 +95,9 @@ class PostController
         require "../src/View/Post/post_edit.php";
     }
 
+    /**
+     * @param $id
+     */
     public function checkEdit($id)
     {
         $title = $_POST['title'];
@@ -90,6 +108,9 @@ class PostController
         header("Location: ?page=post.index");
     }
 
+    /**
+     * Return admin space view
+     */
     public function adminSpaceView()
     {
         $commentRepository = new CommentRepository();

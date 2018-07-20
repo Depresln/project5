@@ -64,6 +64,9 @@ class CommentRepository extends DefaultRepository
         $_SESSION['addSuccess'] = "true";
     }
 
+    /**
+     * @param $id
+     */
     public function deleteComment($id)
     {
         $delete = 'DELETE';
@@ -79,6 +82,9 @@ class CommentRepository extends DefaultRepository
         $_SESSION['deleteSuccess'] = "true";
     }
 
+    /**
+     * @return array
+     */
     public function getByValidation()
     {
         $select = 'SELECT id, created_at, content, post_id, post_user_id, validation';
@@ -99,6 +105,9 @@ class CommentRepository extends DefaultRepository
         return $commentList;
     }
 
+    /**
+     * @param $id
+     */
     public function validateComment($id)
     {
         $update = 'UPDATE comment';

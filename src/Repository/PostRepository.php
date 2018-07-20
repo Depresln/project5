@@ -124,6 +124,9 @@ class PostRepository extends DefaultRepository
         $_SESSION['deleteSuccess'] = "true";
     }
 
+    /**
+     * @param $id
+     */
     public function editPost($id)
     {
         $select = 'SELECT id, title, chapo, content';
@@ -136,6 +139,12 @@ class PostRepository extends DefaultRepository
         $req->execute();
     }
 
+    /**
+     * @param $id
+     * @param $title
+     * @param $chapo
+     * @param $content
+     */
     public function updatePost($id, $title, $chapo, $content)
     {
         $update = 'UPDATE post';
