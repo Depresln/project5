@@ -30,6 +30,8 @@ class Post
      */
     private $content;
 
+    private $pseudo;
+
     /**
      * Post constructor.
      * @param $data
@@ -59,6 +61,9 @@ class Post
             }
             if (isset($data['content'])) {
                 $this->content = $data['content'];
+            }
+            if (isset($data['pseudo'])) {
+                $this->pseudo = $data['pseudo'];
             }
         }
     }
@@ -101,6 +106,11 @@ class Post
         $this->content = $content;
     }
 
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+    }
+
     /**
      * @return mixed
      */
@@ -139,5 +149,10 @@ class Post
     public function getContent()
     {
         return $this->content;
+    }
+
+    public function getPseudo()
+    {
+        return $this->pseudo;
     }
 }

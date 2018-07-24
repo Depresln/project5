@@ -49,10 +49,12 @@ class PostRepository extends DefaultRepository
      */
     public function getById($id)
     {
-        $select = 'SELECT id, title, chapo, content, DATE_FORMAT(created_at, "%d/%m/%Y %Hh%im%ss") AS date';
-        $from = 'FROM post';
-        $where = 'WHERE :id = id';
-        $requestString = $select . ' ' . $from . ' ' . $where;
+        $select = 'SELECT p.id, p.title, p.chapo, p.content, DATE_FORMAT(created_at, "%d/%m/%Y %Hh%im%ss") AS date, p.user_id, u.pseudo';
+        $from = 'FROM post AS p';
+        $join = 'JOIN user AS u';
+        $on = 'ON p.user_id = u.id';
+        $where = 'WHERE :id = p.id';
+        $requestString = $select . ' ' . $from . ' ' . $join . ' ' . $on . ' ' . $where;
 
         $req = $this->getDB()->prepare($requestString);
         // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)

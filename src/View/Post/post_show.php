@@ -24,7 +24,7 @@
 
     // Post content
     /** @var \App\Entity\Post $post */
-    echo "<h2>" . $post->getTitle() . "</h2><br /><br />" . $post->getChapo() . "<br />" . $post->getContent() . "<br /><br />" . $post->getDate() . "<br />";
+    echo "<h2>" . $post->getTitle() . "</h2>de " . $post->getPseudo() . "<br /><br />" . $post->getChapo() . "<br />" . $post->getContent() . "<br /><br />" . $post->getDate() . "<br />";
 
     // Edit post (admin only)
     if(isset($_SESSION['pseudo'])) {
