@@ -3,6 +3,8 @@ session_start();
 $title  = 'Nicolas Depresles';
 ob_start();
 
+
+
     if(isset($_SESSION['pseudo'])) {
         if ($_SESSION['is_admin'] == TRUE) {
             /** @var \App\Entity\Comment $comment */

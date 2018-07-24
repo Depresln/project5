@@ -30,6 +30,9 @@ class Post
      */
     private $content;
 
+    /**
+     * @var
+     */
     private $pseudo;
 
     /**
@@ -106,6 +109,9 @@ class Post
         $this->content = $content;
     }
 
+    /**
+     * @param $pseudo
+     */
     public function setPseudo($pseudo)
     {
         $this->pseudo = $pseudo;
@@ -151,6 +157,9 @@ class Post
         return $this->content;
     }
 
+    /**
+     * @return mixed
+     */
     public function getPseudo()
     {
         return $this->pseudo;

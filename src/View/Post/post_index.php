@@ -1,9 +1,12 @@
 <?php
-    session_start();
-    $title  = 'Nicolas Depresles';
-    ob_start();
+session_start();
+$title  = 'Nicolas Depresles';
+ob_start();
 
-    echo '<h2>Post List</h2>';
+    // Navbar
+    require '../src/View/navbar.php';
+
+    echo '<br /><br /><br /><br /><br /><h2>Post List</h2>';
 
     // Message for post deletion successful
     if(isset($_SESSION['pseudo'])){
@@ -51,10 +54,12 @@
     // Add a post
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
-            echo "<a href='?page=post.create'>Ajouter un post</a>";
+            echo "<a href='?page=post.create'>Ajouter un post</a><br /><br />";
         }
     }
 
-    $content = ob_get_clean();
+    // Footer
+    require '../src/View/footer.php';
 
-    include('..\src\View\template.php');
+$content = ob_get_clean();
+include('..\src\View\template.php');

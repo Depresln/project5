@@ -1,10 +1,13 @@
 <?php
-    session_start();
-    $title  = 'Nicolas Depresles';
-    ob_start();
+session_start();
+$title  = 'Nicolas Depresles';
+ob_start();
 
     $url = $_GET['id'];
     $_SESSION['previous'] = $url;
+
+    // Navbar
+    require '../src/View/navbar.php';
 
     // Comment successfully added
     if(isset($_SESSION['pseudo'])){
@@ -24,7 +27,7 @@
 
     // Post content
     /** @var \App\Entity\Post $post */
-    echo "<h2>" . $post->getTitle() . "</h2>de " . $post->getPseudo() . "<br /><br />" . $post->getChapo() . "<br />" . $post->getContent() . "<br /><br />" . $post->getDate() . "<br />";
+    echo "<br /><br /><br /><br /><br /><h2>" . $post->getTitle() . "</h2>de " . $post->getPseudo() . "<br /><br />" . $post->getChapo() . "<br />" . $post->getContent() . "<br /><br />" . $post->getDate() . "<br />";
 
     // Edit post (admin only)
     if(isset($_SESSION['pseudo'])) {
@@ -49,6 +52,8 @@
         }
     }
 
-    $content = ob_get_clean();
+    // Footer
+    require '../src/View/footer.php';
 
-    include('..\src\View\template.php');
+$content = ob_get_clean();
+include('..\src\View\template.php');
