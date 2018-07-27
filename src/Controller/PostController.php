@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\PostRepository;
 use App\Repository\CommentRepository;
-use App\Controller\ErrorController;
 
 /**
  * Class PostController
@@ -36,6 +35,88 @@ class PostController
         } else {
             $controller = new ErrorController();
             $controller->error404();
+        }
+    }
+
+    /**
+     * Return post creation view
+     */
+    public function createPostView()
+    {
+        require "../src/View/Post/post_create.php";
+    }
+
+    /**
+     * Post creation
+     */
+    public function checkCreation()
+    {
+        $title = $_POST['title'];
+        $chapo = $_POST['chapo'];
+        $content = $_POST['content'];
+        $id = $_POST['id'];
+
+        $postCreation = new PostRepository();
+        $postCreation->addPost($title, $chapo, $content, $id);
+        header("Location: ?page=post.index");
+    }
+
+    /**
+     * Return delete post view
+     */
+    public function deletePostView()
+    {
+        require "../src/View/Post/post_delete.php";
+    }
+
+    /**
+     * @param $id
+     */
+    public function postDelete($id)
+    {
+        session_start();
+        if(isset($_SESSION['pseudo'])) {
+            if ($_SESSION['is_admin'] == TRUE) {
+                $postDeletion = new PostRepository();
+                $postDeletion->deletePost($id);
+                header("Location: ?page=post.index");
+            }
+        }
+    }
+
+    /**
+     * Return post edit view
+     */
+    public function editPostView()
+    {
+        $id = $_GET['id'];
+        $fieldValues = new PostRepository();
+        $post = $fieldValues->getById($id);
+        require "../src/View/Post/post_edit.php";
+    }
+
+    /**
+     * @param $id
+     */
+    public function checkEdit($id)
+    {
+        $title = $_POST['title'];
+        $chapo = $_POST['chapo'];
+        $content = $_POST['content'];
+        $editPost = new PostRepository();
+        $editPost->updatePost($id, $title, $chapo, $content);
+        header("Location: ?page=post.index");
+    }
+
+    /**
+     * Return admin space view
+     */
+    public function adminSpaceView()
+    {
+        $commentRepository = new CommentRepository();
+        $commentList = $commentRepository->getByValidation();
+        if ($commentList) {
+            require "../src/View/Administration/admin_space.php";
         }
     }
 }

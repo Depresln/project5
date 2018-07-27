@@ -49,10 +49,12 @@ class PostRepository extends DefaultRepository
      */
     public function getById($id)
     {
-        $select = 'SELECT id, title, chapo, content, DATE_FORMAT(created_at, "%d/%m/%Y %Hh%im%ss") AS date';
-        $from = 'FROM post';
-        $where = 'WHERE :id = id';
-        $requestString = $select . ' ' . $from . ' ' . $where;
+        $select = 'SELECT p.id, p.title, p.chapo, p.content, DATE_FORMAT(created_at, "%d/%m/%Y %Hh%im%ss") AS date, p.user_id, u.pseudo';
+        $from = 'FROM post AS p';
+        $join = 'JOIN user AS u';
+        $on = 'ON p.user_id = u.id';
+        $where = 'WHERE :id = p.id';
+        $requestString = $select . ' ' . $from . ' ' . $join . ' ' . $on . ' ' . $where;
 
         $req = $this->getDB()->prepare($requestString);
         // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)
@@ -66,5 +68,100 @@ class PostRepository extends DefaultRepository
         $req->closeCursor();
 
         return $row ? new Post($row) : false;
+    }
+
+    /**
+     * @param $title
+     * @param $chapo
+     * @param $content
+     * @param $id
+     */
+    public function addPost($title, $chapo, $content, $id)
+    {
+        $select = 'SELECT *';
+        $from = 'FROM post';
+        $where = 'WHERE title = :title';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':title',$title,PDO::PARAM_STR);
+        $req->execute();
+
+        if($data = $req->fetch(PDO::FETCH_ASSOC)){
+            echo "Le titre de ce post existe déjà.<br /> <a href='?page=post.create'>Retour à la création de post</a>";
+        } else {
+            $insert = 'INSERT INTO post';
+            $values = 'VALUES(NULL, NOW(), :title, :chapo, :content, :id)';
+            $requestString = $insert . ' ' . $values;
+
+            $req = $this->getDB()->prepare($requestString);
+            $req->bindParam(':title',$title);
+            $req->bindParam(':chapo',$chapo);
+            $req->bindParam(':content',$content);
+            $req->bindParam(':id',$id);
+            $req->execute();
+
+            session_start();
+            $_SESSION['addSuccess'] = "true";
+        }
+    }
+
+    /**
+     * @param $id
+     */
+    public function deletePost($id)
+    {
+        $delete = 'DELETE';
+        $from = 'FROM comment';
+        $where = 'WHERE post_id = :id';
+        $fromPost = 'FROM post';
+        $wherePost = 'WHERE id = :id';
+        $requestString = $delete . ' ' . $from . ' ' . $where . '; ' . $delete . ' ' . $fromPost . ' ' . $wherePost;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id',$id,PDO::PARAM_STR);
+        $req->execute();
+
+        session_start();
+        $_SESSION['deleteSuccess'] = "true";
+    }
+
+    /**
+     * @param $id
+     */
+    public function editPost($id)
+    {
+        $select = 'SELECT id, title, chapo, content';
+        $from = 'FROM post';
+        $where = 'WHERE id = :id';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id', $id, PDO::PARAM_STR);
+        $req->execute();
+    }
+
+    /**
+     * @param $id
+     * @param $title
+     * @param $chapo
+     * @param $content
+     */
+    public function updatePost($id, $title, $chapo, $content)
+    {
+        $update = 'UPDATE post';
+        $set = 'SET title = :title, chapo = :chapo, content = :content';
+        $where = 'WHERE id = :id';
+        $requestString = $update . ' ' . $set . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id', $id, PDO::PARAM_STR);
+        $req->bindParam(':title', $title, PDO::PARAM_STR);
+        $req->bindParam(':chapo', $chapo, PDO::PARAM_STR);
+        $req->bindParam(':content', $content, PDO::PARAM_STR);
+        $req->execute();
+
+        session_start();
+        $_SESSION['editSuccess'] = "true";
     }
 }

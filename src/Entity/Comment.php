@@ -24,6 +24,10 @@ class Comment
      * @var string
      */
     private $content;
+    /**
+     * @var boolean
+     */
+    private $validation;
 
     /**
      * Comment constructor.
@@ -52,6 +56,9 @@ class Comment
             if (isset($data['content'])) {
                 $this->content = $data['content'];
             }
+            if (isset($data['validation'])) {
+                $this->validation = $data['validation'];
+            }
         }
     }
 
@@ -77,6 +84,14 @@ class Comment
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @param $validation
+     */
+    public function setValidation($validation)
+    {
+        $this->validation = $validation;
     }
 
     /**
@@ -109,5 +124,13 @@ class Comment
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValidation()
+    {
+        return $this->validation;
     }
 }
