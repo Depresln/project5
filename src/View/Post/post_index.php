@@ -58,6 +58,13 @@ ob_start();
         }
     }
 
+    // Espace admin
+    if(isset($_SESSION['pseudo'])){
+        if($_SESSION['is_admin'] == TRUE){
+            echo "<a href='?page=post.administration'>Accéder à l'espace administrateur</a><br /><br />";
+        }
+    }
+
     // Footer
     require '../src/View/footer.php';
 

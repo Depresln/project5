@@ -38,9 +38,11 @@
                     } else {
                         if (isset($_SESSION['pseudo'])) {
                             echo '<li class="page-scroll"><a href="?page=default.home">Accueil</a></li>
+                                <li class="page-scroll"><a href="?page=post.index">Blog</a></li>
                                 <li class="page-scroll"><a href="?page=authentication.logout">Se déconnecter</a></li>';
                         } else {
                             echo '<li class="page-scroll"><a href="?page=default.home">Accueil</a></li>
+                                <li class="page-scroll"><a href="?page=post.index">Blog</a></li>
                                 <li class="page-scroll"><a href="?page=authentication.register">S\'enregistrer</a></li>
                                 <li class="page-scroll"><a href="?page=authentication.login">Se connecter</a></li>';
                         }

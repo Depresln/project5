@@ -12,7 +12,7 @@ ob_start();
     // Comment successfully added
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
-            echo "Commentaire ajouté avec succès ! En attente de validation...<br /><br />";
+            echo "<br /><br /><br /><br /><br />Commentaire ajouté avec succès ! En attente de validation...<br /><br />";
             $_SESSION['addSuccess'] = "false";
         }
     }
@@ -20,14 +20,14 @@ ob_start();
     // Comment successfully deleted
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
-            echo "Commentaire supprimé avec succès !<br /><br />";
+            echo "<br /><br /><br /><br /><br />Commentaire supprimé avec succès !<br /><br />";
             $_SESSION['deleteSuccess'] = "false";
         }
     }
 
     // Post content
     /** @var \App\Entity\Post $post */
-    echo "<br /><br /><br /><br /><br /><h2>" . $post->getTitle() . "</h2>de " . $post->getPseudo() . "<br /><br />" . $post->getChapo() . "<br />" . $post->getContent() . "<br /><br />" . $post->getDate() . "<br />";
+    echo "<br /><br /><br /><br /><br /><h2>" . $post->getTitle() . "</h2>de " . $post->getPseudo() . "<br /><br />" . $post->getChapo() . "<br />" . $post->getContent() . "<br /><br />Le " . $post->getDate() . "<br />";
 
     // Edit post (admin only)
     if(isset($_SESSION['pseudo'])) {

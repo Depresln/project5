@@ -3,12 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col col-md-4">
-                    <h3>Location</h3>
-                    <p>3481 Melrose Place
-                        <br>Beverly Hills, CA 90210</p>
+                    <h3>Adresse</h3>
+                    <p>12 rue John Doe,<br> 75000, Paris</p>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>Around the Web</h3>
+                    <h3>Réseaux sociaux</h3>
                     <ul class="list-inline">
                         <li>
                             <a href="https://www.facebook.com/nicolas.depresles" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -25,8 +24,8 @@
                     </ul>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>About Freelancer</h3>
-                    <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    <h3>Téléphone</h3>
+                    <p>01 23 45 67 89</p>
                 </div>
             </div>
         </div>

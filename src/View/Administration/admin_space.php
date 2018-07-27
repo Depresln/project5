@@ -16,6 +16,12 @@ ob_start();
         }
     }
 
+    if(isset($_SESSION['pseudo'])){
+        if($_SESSION['is_admin'] == TRUE){
+            echo "<a href='?page=post.index'>Retour au blog</a><br /><br />";
+        }
+    }
+
 $content = ob_get_clean();
 
 include('..\src\View\template.php');
