@@ -51,14 +51,18 @@ class PostController
      */
     public function checkCreation()
     {
-        $title = $_POST['title'];
-        $chapo = $_POST['chapo'];
-        $content = $_POST['content'];
-        $id = $_POST['id'];
+        if(empty($_POST['title'] OR $_POST['chapo'] OR $_POST['content'])) {
+            echo "Champ(s) non rempli(s) !";
+        } else {
+            $title = htmlspecialchars($_POST['title']);
+            $chapo = htmlspecialchars($_POST['chapo']);
+            $content = htmlspecialchars($_POST['content']);
+            $id = $_POST['id'];
 
-        $postCreation = new PostRepository();
-        $postCreation->addPost($title, $chapo, $content, $id);
-        header("Location: ?page=post.index");
+            $postCreation = new PostRepository();
+            $postCreation->addPost($title, $chapo, $content, $id);
+            header("Location: ?page=post.index");
+        }
     }
 
     /**
@@ -100,12 +104,16 @@ class PostController
      */
     public function checkEdit($id)
     {
-        $title = $_POST['title'];
-        $chapo = $_POST['chapo'];
-        $content = $_POST['content'];
-        $editPost = new PostRepository();
-        $editPost->updatePost($id, $title, $chapo, $content);
-        header("Location: ?page=post.index");
+        if(empty($_POST['title'] OR $_POST['chapo'] OR $_POST['content'])) {
+            echo "Champ(s) non rempli(s) !";
+        } else {
+            $title = htmlspecialchars($_POST['title']);
+            $chapo = htmlspecialchars($_POST['chapo']);
+            $content = htmlspecialchars($_POST['content']);
+            $editPost = new PostRepository();
+            $editPost->updatePost($id, $title, $chapo, $content);
+            header("Location: ?page=post.index");
+        }
     }
 
     /**

@@ -22,12 +22,16 @@ class CommentController
      */
     public function checkCommentCreation($id)
     {
-        $content = $_POST['content'];
-        $idSession = $_POST['id'];
+        if(empty($_POST['content'])) {
+            echo "Champ(s) non rempli(s) !";
+        } else {
+            $content = htmlspecialchars($_POST['content']);
+            $idSession = $_POST['id'];
 
-        $postCreation = new CommentRepository();
-        $postCreation->addComment($content, $id, $idSession);
-        header("Location: ?page=post.show&id=" . $id);
+            $postCreation = new CommentRepository();
+            $postCreation->addComment($content, $id, $idSession);
+            header("Location: ?page=post.show&id=" . $id);
+        }
     }
 
     public function deleteCommentView()
