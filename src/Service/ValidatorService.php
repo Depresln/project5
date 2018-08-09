@@ -44,11 +44,4 @@ class ValidatorService
         }
         return false;
     }
-
-//    public function checkContent($param)
-//    {
-//        if (isset $param){
-//            $param->mysqli_real_escape_string(string $param);
-//        }
-//    }
 }
