@@ -11,7 +11,7 @@ use App\Service\ValidatorService;
 class CommentController
 {
     /**
-     *
+     * Return comments view
      */
     public function addCommentView()
     {
@@ -35,6 +35,9 @@ class CommentController
         }
     }
 
+    /**
+     * Return delete comment view
+     */
     public function deleteCommentView()
     {
         require "../src/View/Comment/comment_delete.php";
@@ -58,6 +61,9 @@ class CommentController
         }
     }
 
+    /**
+     * @param $id
+     */
     public function commentValidate($id)
     {
         $commentRepository = new CommentRepository();

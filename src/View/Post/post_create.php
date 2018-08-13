@@ -1,8 +1,7 @@
 <?php
-    session_start();
-    $title  = 'Nicolas Depresles';
-    ob_start();
-
+session_start();
+$title  = 'Nicolas Depresles';
+ob_start();
 
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
@@ -25,7 +24,6 @@
         echo "Vous n'avez pas les droits nécessaires à la visualisation de cette page.";
     }
 
-    $content = ob_get_clean();
-
-    include('..\src\View\template.php');
+$content = ob_get_clean();
+include('..\src\View\template.php');
 ?>

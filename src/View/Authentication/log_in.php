@@ -1,9 +1,9 @@
 <?php
-    $title  = 'Nicolas Depresles';
-    ob_start();
+$title  = 'Nicolas Depresles';
+ob_start();
 ?>
-    <div id="page-top" class="index">
 
+    <div id="page-top" class="index">
         <?php require '../src/View/navbar.php'; ?>
 
         <div class="container" align="center"><br /><br /><br /><br /><br /><br /><br />
@@ -21,7 +21,6 @@
     </div>
 
 <?php
-    $content = ob_get_clean();
-
-    include('..\src\View\template.php');
+$content = ob_get_clean();
+include('..\src\View\template.php');
 ?>

@@ -9,7 +9,7 @@ namespace App\Controller;
 class DefaultController
 {
     /**
-     *
+     * Return home view
      */
     public function home()
     {

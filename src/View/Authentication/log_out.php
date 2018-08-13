@@ -4,6 +4,7 @@ session_destroy();
 $title  = 'Nicolas Depresles';
 ob_start();
 ?>
+
     <div id="page-top" class="index">
         <?php require '../src/View/navbar.php'; ?>
 
@@ -13,8 +14,8 @@ ob_start();
 
         <?php require '../src/View/footer.php'; ?>
     </div>
-<?php
-    $content = ob_get_clean();
 
-    include('..\src\View\template.php');
+<?php
+$content = ob_get_clean();
+include('..\src\View\template.php');
 ?>

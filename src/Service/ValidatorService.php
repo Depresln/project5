@@ -26,6 +26,10 @@ class ValidatorService
         }
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function commentIdValidate($id)
     {
         if (isset($id)){
@@ -35,6 +39,10 @@ class ValidatorService
         }
     }
 
+    /**
+     * @param $param
+     * @return bool
+     */
     public function paramIssetNotEmpty($param)
     {
         if (isset($param)){

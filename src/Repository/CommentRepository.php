@@ -120,6 +120,11 @@ class CommentRepository extends DefaultRepository
         $req->execute();
     }
 
+    /**
+     * @param $id
+     * @param $author
+     * @return bool
+     */
     public function checkCommentRights($id, $author)
     {
         $select = 'SELECT id, post_user_id AS author';

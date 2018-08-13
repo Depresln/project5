@@ -1,12 +1,10 @@
 <?php
-    session_start();
-    $title  = 'Nicolas Depresles';
-?>
+session_start();
+$title  = 'Nicolas Depresles';
+ob_start();
 
-<?php ob_start(); ?>
-    <?php
-        require_once "../vendor/autoload.php";
-    ?>
+require_once "../vendor/autoload.php";
+?>
 
     <div id="page-top" class="index">
 
@@ -432,6 +430,7 @@
 
     </div>
 
-<?php $content = ob_get_clean(); ?>
-
-<?php require('template.php'); ?>
+<?php
+$content = ob_get_clean();
+require('template.php');
+?>

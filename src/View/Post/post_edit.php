@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    $title  = 'Nicolas Depresles';
-    ob_start();
+session_start();
+$title  = 'Nicolas Depresles';
+ob_start();
 
     /** @var \App\Entity\Post $post */
     if(isset($_SESSION['pseudo'])){
@@ -25,7 +25,6 @@
         echo "Vous n'avez pas les droits nécessaires à la visualisation de cette page.";
     }
 
-    $content = ob_get_clean();
-
-    include('..\src\View\template.php');
+$content = ob_get_clean();
+include('..\src\View\template.php');
 ?>
