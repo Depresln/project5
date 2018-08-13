@@ -51,7 +51,7 @@ class PostController
      */
     public function checkCreation()
     {
-        if(empty($_POST['title'] OR $_POST['chapo'] OR $_POST['content'])) {
+        if(empty($_POST['title']) OR empty($_POST['chapo']) OR empty($_POST['content'])) {
             echo "Champ(s) non rempli(s) !";
         } else {
             $title = htmlspecialchars($_POST['title']);
@@ -104,7 +104,7 @@ class PostController
      */
     public function checkEdit($id)
     {
-        if(empty($_POST['title'] OR $_POST['chapo'] OR $_POST['content'])) {
+        if(empty($_POST['title']) OR empty($_POST['chapo']) OR empty($_POST['content'])) {
             echo "Champ(s) non rempli(s) !";
         } else {
             $title = htmlspecialchars($_POST['title']);

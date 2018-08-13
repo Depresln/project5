@@ -129,13 +129,14 @@ class CommentRepository extends DefaultRepository
 
         $req = $this->getDB()->prepare($requestString);
         $req->bindParam(':id', $id, PDO::PARAM_INT);
-        $result = $req->execute();
+        $req->execute();
+        $dataRow = $req->fetch();
 
-        if($result['author'] == $author) {
-            $check === true;
+        if($dataRow['author'] == $author) {
+            $check = true;
             return $check;
         } else {
-            $check === false;
+            $check = false;
             return $check;
         }
     }
