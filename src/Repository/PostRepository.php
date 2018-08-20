@@ -146,7 +146,7 @@ class PostRepository extends DefaultRepository
     public function updatePost($id, $title, $chapo, $content)
     {
         $update = 'UPDATE post';
-        $set = 'SET title = :title, chapo = :chapo, content = :content';
+        $set = 'SET created_at = NOW(), title = :title, chapo = :chapo, content = :content';
         $where = 'WHERE id = :id';
         $requestString = $update . ' ' . $set . ' ' . $where;
 

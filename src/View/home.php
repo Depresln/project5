@@ -146,6 +146,13 @@ require_once "../vendor/autoload.php";
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Prénom</label>
+                                <input type="text" class="form-control" placeholder="Prénom" id="firstname" required data-validation-required-message="Veuillez entrer votre prénom.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Adresse email</label>
                                 <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Veuillez entrer votre adresse email.">
                                 <p class="help-block text-danger"></p>
