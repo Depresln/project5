@@ -17,6 +17,8 @@
 
         <!-- Theme CSS -->
         <link href="assets/css/freelancer.min.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
+
 
         <!-- Custom Fonts -->
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

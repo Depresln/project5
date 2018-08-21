@@ -69,7 +69,7 @@ ob_start();
                 <div class="col-lg-4 col-lg-offset-3">
                     <ul class="list-inline">
                         <li>
-                            <?php echo $post->getDate(); ?>
+                            <?php echo "Le " . $post->getDate(); ?>
                         </li>
                     </ul>
                 </div>
@@ -97,12 +97,10 @@ ob_start();
         if($_SESSION['is_admin'] == TRUE){
             ?>
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-offset-3 col-lg-3">
+                <div class="row text-center">
+                    <div class="col-lg-12">
                         <?php echo "<a href='?page=post.create' class='btn btn-lg btn-success'>Ajouter un post</a>"; ?>
-                    </div>
-                    <div class="col-lg-3">
-                        <?php echo "<a href='?page=post.administration' class='btn btn-lg btn-success'>Accéder à l'espace administrateur</a>"; ?>
+                        <?php echo "<a href='?page=post.administration' class='btn btn-lg btn-success'>Espace administrateur</a>"; ?>
                     </div>
                 </div>
             </div>
