@@ -102,7 +102,9 @@ ob_start();
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 fa-border">
-                <p class="pComment"><?php echo $comment->getContent(); ?></p>
+                <div class='pull-right'><?php echo "par " . $comment->getAuthor() ?></div><br />
+                <p class="pComment text-center"><?php echo $comment->getContent(); ?></p>
+                <div class='pull-right'><?php echo "Le " . $comment->getDate() ?></div>
             </div>
         </div>
     <?php
