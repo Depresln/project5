@@ -3,6 +3,11 @@ session_start();
 $title  = 'Nicolas Depresles';
 ob_start();
 
+    // Navbar
+    require '../src/View/navbar.php';
+
+    echo '<br /><br /><br /><br /><br /><br />';
+
     if(isset($_SESSION['pseudo'])) {
         if ($_SESSION['is_admin'] == TRUE) {
             /** @var \App\Entity\Comment $comment */
@@ -20,9 +25,21 @@ ob_start();
 
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
-            echo "<a href='?page=post.index'>Retour au blog</a><br /><br />";
+            ?>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <?php echo "<a href='?page=post.index' class='btn btn-lg btn-success'>Retour au blog</a><br /><br />"; ?>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <?php
         }
     }
+
+    // Footer
+    require '../src/View/footer.php';
 
 $content = ob_get_clean();
 include('..\src\View\template.php');
