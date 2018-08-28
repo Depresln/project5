@@ -3,15 +3,21 @@ session_start();
 $title  = 'Nicolas Depresles';
 ob_start();
 
-    echo "Je suis un commentaire d'id " . $_GET['id'] . "<br />";
+    // Navbar
+    require '../src/View/navbar.php';
+
+    echo "<br /><br /><br /><br /><br /><br /><p class='text-center'>Vous êtes sur le point de supprimer définitivement un commentaire.</p><br />";
 
     if (isset($_SESSION['pseudo'])) {
-        echo 'Supprimer le commentaire ?<br />';
-        echo '<a href="?page=comment.deletion&id=' . $_GET['id'] . '">Oui</a><br />';
-        echo '<a href="?page=post.show&id=' . $_GET['id'] . '">Non</a>';
+        echo "<div class='text-center'>Supprimer le commentaire ?</div><br />";
+        echo '<div class=\'text-center\'><a href="?page=comment.deletion&id=' . $_GET['id'] . '">Oui</a></div>';
+        echo '<div class=\'text-center\'><a href="?page=post.show&id=' . $_SESSION['previous'] . '">Non</a></div><br />';
     } else {
         echo 'Vous n\'avez pas les droits suffisants pour supprimer un commentaire.';
     }
+
+    // Footer
+    require '../src/View/footer.php';
 
 $content = ob_get_clean();
 include('..\src\View\template.php');
