@@ -145,4 +145,19 @@ class CommentRepository extends DefaultRepository
             return $check;
         }
     }
+
+    public function getAuthorById($id)
+    {
+        $select = 'SELECT pseudo';
+        $from = 'FROM user';
+        $where = 'WHERE id = :id';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $dataRow = $req->fetch();
+
+        return $dataRow['pseudo'];
+    }
 }

@@ -37,7 +37,7 @@ ob_start();
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12">
-                                    <label>Titre</label>
+                                    <label>Message</label>
                                     <textarea rows="10" class="form-control" placeholder="Contenu" name="content" id="content" required data-validation-required-message="Veuillez entrer le contenu du post."><?= $post->getContent() ?></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
