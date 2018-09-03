@@ -206,25 +206,22 @@ require_once "../vendor/autoload.php";
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Circular Effect</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="assets/img/portfolio/circulareffect.jpg" class="img-responsive img-centered" alt="">
+                            <p>Premier projet très intéressant pour une association environnementale afin de promouvoir leurs événements et leurs bons plans afin de réutiliser les ressources de la planète et ne pas les gâcher.</p>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
+                                <li>Client :
+                                    <strong><a href="http://circular-effect.org/">Association Circular Effect</a></strong>
                                 </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
+                                <li>Date :
+                                    <strong>Novembre 2016</strong>
                                 </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
+                                <li>Service :
+                                    <strong><a href="http://nicolasdep.com/">Intégration</a></strong>
                                 </li>
                             </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Fermer</button>
                         </div>
                     </div>
                 </div>
@@ -243,22 +240,19 @@ require_once "../vendor/autoload.php";
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Windzy</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="assets/img/portfolio/windzy.jpg" class="img-responsive img-centered" alt="">
+                            <p>Projet pour une start-up organisatrice de soirée. Développement d'un site et d'une application mobile afin de déterminer qui ramène quelle nourriture/quelles boissons à la soirée, ainsi que l'emplacement des magasins les plus proches.</p>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
+                                <li>Client :
+                                    <strong><a href="http://www.windzy.com/">Start-up Windzy</a></strong>
                                 </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
+                                <li>Date :
+                                    <strong>Février 2017</strong>
                                 </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
+                                <li>Service :
+                                    <strong><a href="http://nicolasdep.com/">Développement web</a></strong>
                                 </li>
                             </ul>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -280,22 +274,19 @@ require_once "../vendor/autoload.php";
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Chalets & Caviar</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="assets/img/portfolio/chaletscaviar.jpg" class="img-responsive img-centered" alt="">
+                            <p>Utilisation de Wordpress pour une agence de vente et location de chalets de luxe basée à Courchevel.</p>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
+                                <li>Client :
+                                    <strong><a href="http://www.chalets-caviar.nicolasdep.com/">Agence Chalets & Caviar</a></strong>
                                 </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
+                                <li>Date :
+                                    <strong>Septembre 2017</strong>
                                 </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
+                                <li>Service :
+                                    <strong><a href="http://nicolasdep.com">Intégration</a></strong>
                                 </li>
                             </ul>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -317,22 +308,19 @@ require_once "../vendor/autoload.php";
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Films en Plein Air</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="assets/img/portfolio/filmspleinair.jpg" class="img-responsive img-centered" alt="">
+                            <p>Création et présentation d'une maquette pour une association de diffusion de films en plein air. Le but final étant de déterminer le nombre d'inscrits.</p>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
+                                <li>Client :
+                                    <strong>Association Films en Plein Air</strong>
                                 </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
+                                <li>Date :
+                                    <strong>Novembre 2017</a></strong>
                                 </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
+                                <li>Service :
+                                    <strong><a href="http://nicolasdep.com">Management et intégration</a></strong>
                                 </li>
                             </ul>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -354,22 +342,19 @@ require_once "../vendor/autoload.php";
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Site vitrine personnel</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="assets/img/portfolio/ndep.png" class="img-responsive img-centered" alt="">
+                            <p>Utilisation de toutes mes connaissances de l'époque pour la création d'un site vitrine personnel. L'objectif étant d'utiliser le parallax et le json.</p>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
+                                <li>Client :
+                                    <strong><a href="http://nicolasdep.com">Nicolas Depresles</a></strong>
                                 </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
+                                <li>Date :
+                                    <strong>Janvier 2018</strong>
                                 </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
+                                <li>Service :
+                                    <strong><strong><a href="http://nicolasdep.com">Intégration et Développement</a></strong></strong>
                                 </li>
                             </ul>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -396,17 +381,14 @@ require_once "../vendor/autoload.php";
                             <img src="assets/img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
+                                <li>Client :
+                                    <strong><a href="">Start Bootstrap</a></strong>
                                 </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
+                                <li>Date :
+                                    <strong>Mars 2018</strong>
                                 </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
+                                <li>Service :
+                                    <strong><a href="http://nicolasdep.com">Intégration et Développement</a></strong>
                                 </li>
                             </ul>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
