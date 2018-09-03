@@ -5,6 +5,36 @@ ob_start();
 
     // Navbar
     require '../src/View/navbar.php';
+
+    // Message for post deletion successful
+    if(isset($_SESSION['pseudo'])){
+        if($_SESSION['is_admin'] == TRUE){
+            if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
+                echo "<div class='alert alert-danger'>Suppression effectuée avec succès !</div><br /><br />";
+                $_SESSION['deleteSuccess'] = "false";
+            }
+        }
+    }
+
+    // Message for post addition successful
+    if(isset($_SESSION['pseudo'])){
+        if($_SESSION['is_admin'] == TRUE){
+            if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
+                echo "<div class='alert alert-success'>Post ajouté avec succès !</div><br /><br />";
+                $_SESSION['addSuccess'] = "false";
+            }
+        }
+    }
+
+    // Message for post edition successful
+    if(isset($_SESSION['pseudo'])){
+        if($_SESSION['is_admin'] == TRUE){
+            if(isset($_SESSION['editSuccess']) && $_SESSION['editSuccess'] == "true"){
+                echo "<div class='alert alert-success'>Post edité avec succès !</div><br /><br />";
+                $_SESSION['editSuccess'] = "false";
+            }
+        }
+    }
 ?>
 
     <br /><br /><br /><br /><br />
@@ -18,36 +48,6 @@ ob_start();
     </div>
 
 <?php
-    // Message for post deletion successful
-    if(isset($_SESSION['pseudo'])){
-        if($_SESSION['is_admin'] == TRUE){
-            if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
-                echo "Suppression effectuée avec succès !<br /><br />";
-                $_SESSION['deleteSuccess'] = "false";
-            }
-        }
-    }
-
-    // Message for post addition successful
-    if(isset($_SESSION['pseudo'])){
-        if($_SESSION['is_admin'] == TRUE){
-            if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
-                echo "Post ajouté avec succès !<br /><br />";
-                $_SESSION['addSuccess'] = "false";
-            }
-        }
-    }
-
-    // Message for post edition successful
-    if(isset($_SESSION['pseudo'])){
-        if($_SESSION['is_admin'] == TRUE){
-            if(isset($_SESSION['editSuccess']) && $_SESSION['editSuccess'] == "true"){
-                echo "Post edité avec succès !<br /><br />";
-                $_SESSION['editSuccess'] = "false";
-            }
-        }
-    }
-
     // Post index
     /** @var \App\Entity\Post $post */
     foreach ($postList as $post) {

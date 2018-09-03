@@ -13,7 +13,7 @@ ob_start();
     // Comment successfully added
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
-            echo "<br /><br /><br /><br /><br />Commentaire ajouté avec succès ! En attente de validation...";
+            echo "<br /><br /><br /><br /><br /><div class='alert alert-success'>Commentaire ajouté avec succès ! En attente de validation...</div>";
             $_SESSION['addSuccess'] = "false";
         }
     }
@@ -21,7 +21,7 @@ ob_start();
     // Comment successfully deleted
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
-            echo "<br /><br /><br /><br /><br />Commentaire supprimé avec succès !<br /><br />";
+            echo "<br /><br /><br /><br /><br /><div class='alert alert-danger'>Commentaire supprimé avec succès !</div><br /><br />";
             $_SESSION['deleteSuccess'] = "false";
         }
     }

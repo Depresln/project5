@@ -44,7 +44,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/cabin.png" class="img-responsive" alt="">
+                        <img src="assets/img/portfolio/circulareffect.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -54,7 +54,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/cake.png" class="img-responsive" alt="">
+                        <img src="assets/img/portfolio/windzy.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -64,7 +64,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/circus.png" class="img-responsive" alt="">
+                        <img src="assets/img/portfolio/chaletscaviar.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -74,7 +74,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/game.png" class="img-responsive" alt="">
+                        <img src="assets/img/portfolio/filmspleinair.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
