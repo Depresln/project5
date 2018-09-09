@@ -21,7 +21,7 @@ ob_start();
     // Comment successfully deleted
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
-            echo "<br /><br /><br /><br /><br /><div class='alert alert-danger'>Commentaire supprimé avec succès !</div><br /><br />";
+            echo "<br /><br /><br /><br /><br /><div class='alert alert-success'>Commentaire supprimé avec succès !</div><br /><br />";
             $_SESSION['deleteSuccess'] = "false";
         }
     }
@@ -100,28 +100,26 @@ ob_start();
     foreach ($commentByDate as $comment) {
     ?>
     <br />
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 fa-border">
-                <?php
-                    $reqAuthor = $comment->getAuthor();
-                    $commentRepository = new CommentRepository();
-                    $author = $commentRepository->getAuthorById($reqAuthor);
-                ?>
-                <div class='pull-right'><?php echo "par " . $author ?></div><br />
-                <p class="pComment text-center"><?php echo $comment->getContent(); ?></p>
-                <div class='pull-right'><?php echo "Le " . $comment->getDate() ?></div>
-            </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 fa-border">
+            <?php
+                $reqAuthor = $comment->getAuthor();
+                $commentRepository = new CommentRepository();
+                $author = $commentRepository->getAuthorById($reqAuthor);
+            ?>
+            <div class='pull-right'><?php echo "par " . $author ?></div><br />
+            <p class="pComment text-center"><?php echo $comment->getContent(); ?></p>
+            <div class='pull-right'><?php echo "Le " . $comment->getDate() ?></div>
         </div>
+    </div>
     <?php
         if(isset($_SESSION['pseudo'])) {
             if ($_SESSION['id'] == $comment->getAuthor() OR $_SESSION['is_admin'] == TRUE) {
     ?>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-8">
-                    <?php echo '<a href="?page=comment.delete&id=' . $comment->getIdComment() . '">Supprimer le commentaire</a><br /><br />'; ?>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-8">
+            <?php echo '<a href="?page=comment.delete&id=' . $comment->getIdComment() . '">Supprimer le commentaire</a><br /><br />'; ?>
+        </div>
     </div>
     <?php
             }

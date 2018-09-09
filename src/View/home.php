@@ -84,7 +84,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/safe.png" class="img-responsive" alt="">
+                        <img src="assets/img/portfolio/ndep.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">

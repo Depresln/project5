@@ -10,7 +10,7 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
-                echo "<div class='alert alert-danger'>Suppression effectuée avec succès !</div><br /><br />";
+                echo "<div class='alert alert-success'>Suppression effectuée avec succès !</div><br /><br />";
                 $_SESSION['deleteSuccess'] = "false";
             }
         }

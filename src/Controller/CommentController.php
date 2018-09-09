@@ -52,7 +52,7 @@ class CommentController
         $author = $_SESSION['id'];
         $commentValidation = new CommentRepository();
         $check = $commentValidation->checkCommentRights($id, $author);
-        if(isset($_SESSION['pseudo']) AND $check == true) {
+        if(isset($_SESSION['pseudo']) AND $check == true OR $_SESSION['is_admin'] == true) {
             $postDeletion = new CommentRepository();
             $postDeletion->deleteComment($id);
             header("Location: ?page=post.show&id=" . $_SESSION['previous']);
