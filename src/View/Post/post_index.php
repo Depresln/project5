@@ -10,7 +10,7 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
-                echo "<div class='alert alert-success'>Suppression effectuée avec succès !</div><br /><br />";
+                echo "<div class='alert alert-success margin-top neg-margin'>Suppression effectuée avec succès !</div><br /><br />";
                 $_SESSION['deleteSuccess'] = "false";
             }
         }
@@ -20,7 +20,7 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
-                echo "<div class='alert alert-success'>Post ajouté avec succès !</div><br /><br />";
+                echo "<div class='alert alert-success margin-top neg-margin'>Post ajouté avec succès !</div><br /><br />";
                 $_SESSION['addSuccess'] = "false";
             }
         }
@@ -30,15 +30,13 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             if(isset($_SESSION['editSuccess']) && $_SESSION['editSuccess'] == "true"){
-                echo "<div class='alert alert-success'>Post edité avec succès !</div><br /><br />";
+                echo "<div class='alert alert-success margin-top neg-margin'>Post edité avec succès !</div><br /><br />";
                 $_SESSION['editSuccess'] = "false";
             }
         }
     }
 ?>
-
-    <br /><br /><br /><br /><br />
-    <div class="container">
+    <div class="container margin-top">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>Liste des posts</h2>
@@ -96,7 +94,7 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             ?>
-            <div class="container">
+            <div class="container margin-bot">
                 <div class="row text-center">
                     <div class="col-lg-12">
                         <?php echo "<a href='?page=post.create' class='btn btn-lg btn-success'>Ajouter un post</a>"; ?>
@@ -104,7 +102,6 @@ ob_start();
                     </div>
                 </div>
             </div>
-            <br />
             <?php
         }
     }

@@ -10,8 +10,7 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
 ?>
-            <br /><br /><br /><br /><br /><br />
-            <div class="container" align="center">
+            <div class="container margin-top margin-bot" align="center">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2>Editer le post</h2>
@@ -57,10 +56,10 @@ ob_start();
             </div>
 <?php
         } else {
-            echo "<br /><br /><br /><br /><br /><br />Vous n'avez pas les droits nécessaires à la visualisation de cette page.";
+            echo "<div class='margin-top margin-bot'></div>Vous n'avez pas les droits nécessaires à la visualisation de cette page.";
         }
     } else {
-        echo "<br /><br /><br /><br /><br /><br />Vous n'avez pas les droits nécessaires à la visualisation de cette page.";
+        echo "<div class='margin-top margin-bot'></div>Vous n'avez pas les droits nécessaires à la visualisation de cette page.";
     }
 
     // Footer

@@ -13,7 +13,7 @@ ob_start();
     // Comment successfully added
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['addSuccess']) && $_SESSION['addSuccess'] == "true"){
-            echo "<br /><br /><br /><br /><br /><div class='alert alert-success'>Commentaire ajouté avec succès ! En attente de validation...</div>";
+            echo "<br /><br /><br /><br /><br /><div class='alert alert-success margin-top neg-margin'>Commentaire ajouté avec succès ! En attente de validation...</div>";
             $_SESSION['addSuccess'] = "false";
         }
     }
@@ -21,7 +21,7 @@ ob_start();
     // Comment successfully deleted
     if(isset($_SESSION['pseudo'])){
         if(isset($_SESSION['deleteSuccess']) && $_SESSION['deleteSuccess'] == "true"){
-            echo "<br /><br /><br /><br /><br /><div class='alert alert-success'>Commentaire supprimé avec succès !</div><br /><br />";
+            echo "<br /><br /><br /><br /><br /><div class='alert alert-success margin-top neg-margin'>Commentaire supprimé avec succès !</div><br /><br />";
             $_SESSION['deleteSuccess'] = "false";
         }
     }
@@ -29,8 +29,7 @@ ob_start();
     // Post content
     /** @var \App\Entity\Post $post */
     ?>
-    <br /><br /><br /><br /><br /><br />
-    <div class="container">
+    <div class="container margin-top">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2><?php echo $post->getTitle() ?></h2>
@@ -125,6 +124,10 @@ ob_start();
             }
         }
     }
+
+    ?>
+    <div class="margin-bot"></div>
+    <?php
 
     // Footer
     require '../src/View/footer.php';

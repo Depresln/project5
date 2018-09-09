@@ -5,8 +5,7 @@ ob_start();
 
     <?php require '../src/View/navbar.php'; ?>
 
-    <br /><br /><br /><br /><br /><br />
-    <div class="container" align="center">
+    <div class="container margin-top margin-bot" align="center">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>S'enregistrer</h2>
@@ -74,7 +73,6 @@ ob_start();
             </div>
         </div>
     </div>
-    <br />
 
     <?php require '../src/View/footer.php';
 

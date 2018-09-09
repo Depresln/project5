@@ -8,7 +8,7 @@ ob_start();
         <div id="page-top" class="index">
         <?php require '../src/View/navbar.php'; ?>
 
-        <div class="container" align="center"><br /><br /><br /><br /><br /><br />
+        <div class="container margin-top margin-bot" align="center">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Envoyer un commentaire</h2>

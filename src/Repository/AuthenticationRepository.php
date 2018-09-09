@@ -57,7 +57,7 @@ class AuthenticationRepository extends DefaultRepository
                 $req3->bindParam(':email', $email);
                 $req3->bindParam(':password', $pass_hache);
                 $req3->execute();
-                header('Location: ?page=authentication.login.php');
+                header('Location: ?page=authentication.login');
                 $req3->closeCursor();
             }
         }

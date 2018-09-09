@@ -10,8 +10,7 @@ ob_start();
         if($_SESSION['is_admin'] == TRUE){
             ?>
 
-            <br /><br /><br /><br /><br /><br />
-            <div class="container" align="center">
+            <div class="container margin-top margin-bot" align="center">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2>Créer un post</h2>

@@ -6,7 +6,7 @@ ob_start();
     // Navbar
     require '../src/View/navbar.php';
 
-    echo "<br /><br /><br /><br /><br /><br /><p class='text-center'>Vous êtes sur le point de supprimer définitivement un commentaire.</p><br />";
+    echo "<p class='text-center margin-top'>Vous êtes sur le point de supprimer définitivement un commentaire.</p><br />";
 
     if (isset($_SESSION['pseudo'])) {
         echo "<div class='text-center'>Supprimer le commentaire ?</div><br />";
@@ -15,6 +15,9 @@ ob_start();
     } else {
         echo 'Vous n\'avez pas les droits suffisants pour supprimer un commentaire.';
     }
+    ?>
+    <div class='margin-bot'></div>
+    <?php
 
     // Footer
     require '../src/View/footer.php';

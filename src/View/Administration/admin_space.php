@@ -6,7 +6,9 @@ ob_start();
     // Navbar
     require '../src/View/navbar.php';
 
-    echo '<br /><br /><br /><br /><br /><br />';
+    ?>
+    <div class="margin-top"></div>
+    <?php
 
     if(isset($_SESSION['pseudo'])) {
         if ($_SESSION['is_admin'] == TRUE) {
@@ -26,7 +28,7 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
             ?>
-            <div class="container">
+            <div class="container margin-bot">
                 <div class="row text-center">
                     <div class="col-lg-12">
                         <?php echo "<a href='?page=post.index' class='btn btn-lg btn-success'>Retour au blog</a><br /><br />"; ?>
