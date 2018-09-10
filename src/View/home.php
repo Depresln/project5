@@ -94,7 +94,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/submarine.png" class="img-responsive" alt="">
+                        <img src="assets/img/portfolio/ecogamelab.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
@@ -378,11 +378,11 @@ require_once "../vendor/autoload.php";
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="assets/img/portfolio/ecogamelab.png" class="img-responsive img-centered" alt="">
+                            <p>Intégration d'un site web via WordPress pour valider ma récente acquisition de cette compétence.</p>
                             <ul class="list-inline item-details">
                                 <li>Client :
-                                    <strong><a href="">Start Bootstrap</a></strong>
+                                    <strong><a href="http://ecogamelab.com/">Startup EcoGameLabs</a></strong>
                                 </li>
                                 <li>Date :
                                     <strong>Mars 2018</strong>
