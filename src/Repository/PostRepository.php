@@ -124,21 +124,6 @@ class PostRepository extends DefaultRepository
 
     /**
      * @param $id
-     */
-    public function editPost($id)
-    {
-        $select = 'SELECT id, title, chapo, content';
-        $from = 'FROM post';
-        $where = 'WHERE id = :id';
-        $requestString = $select . ' ' . $from . ' ' . $where;
-
-        $req = $this->getDB()->prepare($requestString);
-        $req->bindParam(':id', $id, PDO::PARAM_STR);
-        $req->execute();
-    }
-
-    /**
-     * @param $id
      * @param $title
      * @param $chapo
      * @param $content
