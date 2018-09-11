@@ -3,18 +3,17 @@ session_start();
 session_destroy();
 $title  = 'Nicolas Depresles';
 ob_start();
+
+    require '../src/View/navbar.php';
 ?>
-    <div id="page-top" class="index">
-        <?php require '../src/View/navbar.php'; ?>
 
-        <br /> <br /><br /><br /><br /><br /><br /><p>Vous vous êtes bien déconnecté.</p><br />
+    <p class="margin-top text-center">Vous vous êtes bien déconnecté.</p><br />
+    <div class="text-center"><a href="?page=default.home">Retour à l'accueil.</a></div>
+    <div class="margin-bot"></div>
 
-        <a href="?page=default.home">Retour à l'accueil.</a><br /><br />
-
-        <?php require '../src/View/footer.php'; ?>
-    </div>
 <?php
-    $content = ob_get_clean();
+    require '../src/View/footer.php';
 
-    include('..\src\View\template.php');
+$content = ob_get_clean();
+include('..\src\View\template.php');
 ?>

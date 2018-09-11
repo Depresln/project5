@@ -13,7 +13,7 @@
                             <a href="https://www.facebook.com/nicolas.depresles" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/u/0/112247684131394095730" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            <a href="https://github.com/Depresln" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
                         </li>
                         <li>
                             <a href="https://twitter.com/Depresln" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>

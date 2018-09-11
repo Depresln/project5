@@ -57,10 +57,6 @@ class PostRepository extends DefaultRepository
         $requestString = $select . ' ' . $from . ' ' . $join . ' ' . $on . ' ' . $where;
 
         $req = $this->getDB()->prepare($requestString);
-        // TODO : controle des parametres, validation des parametres (controle des mots clés ex: drop select insert etc)
-//        $mysqli = new ValidatorService();
-//        $mysqli->checkContent($req);
-
         $req->bindParam(':id', $id, PDO::PARAM_INT);
         $success = $req->execute();
         $row = $req->fetch();
@@ -128,21 +124,6 @@ class PostRepository extends DefaultRepository
 
     /**
      * @param $id
-     */
-    public function editPost($id)
-    {
-        $select = 'SELECT id, title, chapo, content';
-        $from = 'FROM post';
-        $where = 'WHERE id = :id';
-        $requestString = $select . ' ' . $from . ' ' . $where;
-
-        $req = $this->getDB()->prepare($requestString);
-        $req->bindParam(':id', $id, PDO::PARAM_STR);
-        $req->execute();
-    }
-
-    /**
-     * @param $id
      * @param $title
      * @param $chapo
      * @param $content
@@ -150,7 +131,7 @@ class PostRepository extends DefaultRepository
     public function updatePost($id, $title, $chapo, $content)
     {
         $update = 'UPDATE post';
-        $set = 'SET title = :title, chapo = :chapo, content = :content';
+        $set = 'SET created_at = NOW(), title = :title, chapo = :chapo, content = :content';
         $where = 'WHERE id = :id';
         $requestString = $update . ' ' . $set . ' ' . $where;
 

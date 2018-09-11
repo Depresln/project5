@@ -119,4 +119,45 @@ class CommentRepository extends DefaultRepository
         $req->bindParam(':id',$id,PDO::PARAM_STR);
         $req->execute();
     }
+
+    /**
+     * @param $id
+     * @param $author
+     * @return bool
+     */
+    public function checkCommentRights($id, $author)
+    {
+        $select = 'SELECT id, post_user_id AS author';
+        $from = 'FROM comment';
+        $where = 'WHERE id = :id';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $dataRow = $req->fetch();
+
+        if($dataRow['author'] == $author) {
+            $check = true;
+            return $check;
+        } else {
+            $check = false;
+            return $check;
+        }
+    }
+
+    public function getAuthorById($id)
+    {
+        $select = 'SELECT pseudo';
+        $from = 'FROM user';
+        $where = 'WHERE id = :id';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $dataRow = $req->fetch();
+
+        return $dataRow['pseudo'];
+    }
 }

@@ -11,7 +11,7 @@ use App\Repository\AuthenticationRepository;
 class AuthenticationController
 {
     /**
-     *  Return View
+     *  Return view
      */
     public function getRegisterView()
     {
@@ -19,7 +19,7 @@ class AuthenticationController
     }
 
     /**
-     *
+     * Set logs
      */
     public function checkCredentials()
     {
@@ -44,7 +44,7 @@ class AuthenticationController
     }
 
     /**
-     * Return View
+     * Return view
      */
     public function getLogInView()
     {
@@ -52,7 +52,7 @@ class AuthenticationController
     }
 
     /**
-     *
+     * Check logs
      */
     public function checkLogs()
     {
@@ -67,6 +67,9 @@ class AuthenticationController
         }
     }
 
+    /**
+     * Return log out view
+     */
     public function logOut()
     {
         require "../src/View/Authentication/log_out.php";

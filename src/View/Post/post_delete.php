@@ -3,16 +3,25 @@ session_start();
 $title  = 'Nicolas Depresles';
 ob_start();
 
-    echo "Je suis un post d'id " . $_GET['id'] . "<br />";
+    // Navbar
+    require '../src/View/navbar.php';
+
+    echo "<p class='text-center margin-top'>Vous êtes sur le point de supprimer définitivement un post.</p><br />";
 
     if(isset($_SESSION['pseudo'])){
         if($_SESSION['is_admin'] == TRUE){
-            echo "Supprimer le post ?<br />";
-            echo "<a href='?page=post.deletion&id=" . $_GET['id'] . "'>Oui</a><br />";
-            echo "<a href='?page=post.index'>Non</a>";
+            echo "<div class='text-center'>Supprimer le post ?</div><br />";
+            echo "<div class='text-center'><a href='?page=post.deletion&id=" . $_GET['id'] . "'>Oui</a></div>";
+            echo "<div class='text-center'><a href='?page=post.index'>Non</a></div><br />";
         }
     }
 
-$content = ob_get_clean();
+    ?>
+    <div class='margin-bot'></div>
+    <?php
 
+    // Footer
+    require '../src/View/footer.php';
+
+$content = ob_get_clean();
 include('..\src\View\template.php');

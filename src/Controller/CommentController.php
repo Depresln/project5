@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Repository\CommentRepository;
+use App\Service\ValidatorService;
 
 /**
  * Class CommentController
@@ -10,7 +11,7 @@ use App\Repository\CommentRepository;
 class CommentController
 {
     /**
-     *
+     * Return comments view
      */
     public function addCommentView()
     {
@@ -34,6 +35,9 @@ class CommentController
         }
     }
 
+    /**
+     * Return delete comment view
+     */
     public function deleteCommentView()
     {
         require "../src/View/Comment/comment_delete.php";
@@ -45,13 +49,21 @@ class CommentController
     public function commentDelete($id)
     {
         session_start();
-        if(isset($_SESSION['pseudo'])) {
+        $author = $_SESSION['id'];
+        $commentValidation = new CommentRepository();
+        $check = $commentValidation->checkCommentRights($id, $author);
+        if(isset($_SESSION['pseudo']) AND $check == true OR $_SESSION['is_admin'] == true) {
             $postDeletion = new CommentRepository();
             $postDeletion->deleteComment($id);
             header("Location: ?page=post.show&id=" . $_SESSION['previous']);
+        } else {
+            echo 'ERROR';
         }
     }
 
+    /**
+     * @param $id
+     */
     public function commentValidate($id)
     {
         $commentRepository = new CommentRepository();
