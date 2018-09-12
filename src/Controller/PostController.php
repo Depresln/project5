@@ -96,6 +96,7 @@ class PostController
         $id = $_GET['id'];
         $fieldValues = new PostRepository();
         $post = $fieldValues->getById($id);
+        $selectAuthors = $fieldValues->getAuthors();
         require "../src/View/Post/post_edit.php";
     }
 
@@ -110,6 +111,7 @@ class PostController
             $title = htmlspecialchars($_POST['title']);
             $chapo = htmlspecialchars($_POST['chapo']);
             $content = htmlspecialchars($_POST['content']);
+//            $author= $_POST['author'];
             $editPost = new PostRepository();
             $editPost->updatePost($id, $title, $chapo, $content);
             header("Location: ?page=post.index");

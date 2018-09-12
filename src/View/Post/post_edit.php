@@ -41,6 +41,13 @@ ob_start();
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
+                            <select name="author">
+                                <?php
+                                foreach ($selectAuthors as $author){
+                                    echo '<option value="' . $author . '">' . $author . '</option>';
+                                } ?>
+                            </select>
+                            <br />
                             <input type="hidden" name="id" value="<?=$_SESSION['id']?>" />
                             <br />
                             <div id="success"></div>

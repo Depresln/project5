@@ -122,6 +122,21 @@ class PostRepository extends DefaultRepository
         $_SESSION['deleteSuccess'] = "true";
     }
 
+    public function getAuthors()
+    {
+        $select = 'SELECT pseudo';
+        $from = 'FROM user';
+        $where = 'WHERE is_admin = 1';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->execute();
+
+        $authorList = $req->fetch();
+
+        return $authorList;
+    }
+
     /**
      * @param $id
      * @param $title
