@@ -4,7 +4,7 @@ ob_start();
 ?>
 
     <div id="page-top" class="index">
-        <?php require '../src/View/navbar.php'; ?>
+        <?php require 'src/View/navbar.php'; ?>
 
         <div class="container margin-top margin-bot" align="center">
             <div class="row">
@@ -48,10 +48,10 @@ ob_start();
         </div>
         <br />
 
-        <?php require '../src/View/footer.php'; ?>
+        <?php require 'src/View/footer.php'; ?>
     </div>
 
 <?php
 $content = ob_get_clean();
-include('..\src\View\template.php');
+include('src\View\template.php');
 ?>

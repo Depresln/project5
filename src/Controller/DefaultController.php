@@ -13,6 +13,6 @@ class DefaultController
      */
     public function home()
     {
-        require "../src/View/home.php";
+        require "src/View/home.php";
     }
 }

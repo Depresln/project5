@@ -6,7 +6,7 @@ ob_start();
     if(isset($_SESSION['pseudo'])){
         ?>
         <div id="page-top" class="index">
-        <?php require '../src/View/navbar.php'; ?>
+        <?php require 'src/View/navbar.php'; ?>
 
         <div class="container margin-top margin-bot" align="center">
             <div class="row">
@@ -43,8 +43,8 @@ ob_start();
         echo "Vous n'avez pas les droits nécessaires à la visualisation de cette page.";
     }
 
-    require '../src/View/footer.php';
+    require 'src/View/footer.php';
 
 $content = ob_get_clean();
-include('..\src\View\template.php');
+include('src\View\template.php');
 ?>

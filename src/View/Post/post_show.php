@@ -8,7 +8,7 @@ ob_start();
     $_SESSION['previous'] = $url;
 
     // Navbar
-    require '../src/View/navbar.php';
+    require 'src/View/navbar.php';
 
     // Comment successfully added
     if(isset($_SESSION['pseudo'])){
@@ -130,8 +130,8 @@ ob_start();
     <?php
 
     // Footer
-    require '../src/View/footer.php';
+    require 'src/View/footer.php';
 
 $content = ob_get_clean();
-include('..\src\View\template.php');
+include('src\View\template.php');
 ?>

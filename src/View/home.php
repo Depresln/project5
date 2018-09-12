@@ -3,20 +3,20 @@ session_start();
 $title  = 'Nicolas Depresles';
 ob_start();
 
-require_once "../vendor/autoload.php";
+require_once "vendor/autoload.php";
 ?>
 
     <div id="page-top" class="index">
 
     <!-- Navbar -->
-    <?php require '../src/View/navbar.php'; ?>
+    <?php require 'src/View/navbar.php'; ?>
 
     <!-- Header -->
     <header>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive img-circle" src="assets/img/profile.jpg" alt="">
+                    <img class="img-responsive img-circle" src="web/assets/img/profile.jpg" alt="">
                     <div class="intro-text">
                         <span class="name">Nicolas DEPRESLES</span>
                         <hr class="star-light">
@@ -44,7 +44,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/circulareffect.jpg" class="img-responsive" alt="">
+                        <img src="web/assets/img/portfolio/circulareffect.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -54,7 +54,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/windzy.jpg" class="img-responsive" alt="">
+                        <img src="web/assets/img/portfolio/windzy.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -64,7 +64,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/chaletscaviar.jpg" class="img-responsive" alt="">
+                        <img src="web/assets/img/portfolio/chaletscaviar.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -74,7 +74,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/filmspleinair.jpg" class="img-responsive" alt="">
+                        <img src="web/assets/img/portfolio/filmspleinair.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -84,7 +84,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/ndep.png" class="img-responsive" alt="">
+                        <img src="web/assets/img/portfolio/ndep.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -94,7 +94,7 @@ require_once "../vendor/autoload.php";
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="assets/img/portfolio/ecogamelab.png" class="img-responsive" alt="">
+                        <img src="web/assets/img/portfolio/ecogamelab.png" class="img-responsive" alt="">
                     </a>
                 </div>
             </div>
@@ -115,7 +115,7 @@ require_once "../vendor/autoload.php";
                     <p>Je suis Nicolas Depresles, un jeune développeur front-end de 24 ans. Je suis énormément attiré par le monde du web, passion que j'ai la chance de pouvoir vivre chaque jour. Fort de nombreuses compétences en développement web ainsi qu'en langues, marketing et communication, je me mets à votre disposition pour donner vie à vos idées quel que soit votre projet, quels que soient vos défis.</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="assets/cv 4.4.pdf" download class="btn btn-lg btn-outline">
+                    <a href="web/assets/cv 4.4.pdf" download class="btn btn-lg btn-outline">
                         <i class="fa fa-download"></i> Télécharger mon CV
                     </a>
                 </div>
@@ -134,7 +134,7 @@ require_once "../vendor/autoload.php";
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="sentMessage" id="contactForm" action="assets/contact_me.php" method="post" novalidate>
+                    <form name="sentMessage" id="contactForm" action="web/assets/contact_me.php" method="post" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Nom</label>
@@ -184,7 +184,7 @@ require_once "../vendor/autoload.php";
     </section>
 
     <!-- Footer -->
-    <?php require '../src/View/footer.php' ?>
+    <?php require 'src/View/footer.php' ?>
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
@@ -208,7 +208,7 @@ require_once "../vendor/autoload.php";
                         <div class="modal-body">
                             <h2>Circular Effect</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/circulareffect.jpg" class="img-responsive img-centered" alt="">
+                            <img src="web/assets/img/portfolio/circulareffect.jpg" class="img-responsive img-centered" alt="">
                             <p>Premier projet très intéressant pour une association environnementale afin de promouvoir leurs événements et leurs bons plans afin de réutiliser les ressources de la planète et ne pas les gâcher.</p>
                             <ul class="list-inline item-details">
                                 <li>Client :
@@ -242,7 +242,7 @@ require_once "../vendor/autoload.php";
                         <div class="modal-body">
                             <h2>Windzy</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/windzy.jpg" class="img-responsive img-centered" alt="">
+                            <img src="web/assets/img/portfolio/windzy.jpg" class="img-responsive img-centered" alt="">
                             <p>Projet pour une start-up organisatrice de soirée. Développement d'un site et d'une application mobile afin de déterminer qui ramène quelle nourriture/quelles boissons à la soirée, ainsi que l'emplacement des magasins les plus proches.</p>
                             <ul class="list-inline item-details">
                                 <li>Client :
@@ -276,7 +276,7 @@ require_once "../vendor/autoload.php";
                         <div class="modal-body">
                             <h2>Chalets & Caviar</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/chaletscaviar.jpg" class="img-responsive img-centered" alt="">
+                            <img src="web/assets/img/portfolio/chaletscaviar.jpg" class="img-responsive img-centered" alt="">
                             <p>Utilisation de Wordpress pour une agence de vente et location de chalets de luxe basée à Courchevel.</p>
                             <ul class="list-inline item-details">
                                 <li>Client :
@@ -310,7 +310,7 @@ require_once "../vendor/autoload.php";
                         <div class="modal-body">
                             <h2>Films en Plein Air</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/filmspleinair.jpg" class="img-responsive img-centered" alt="">
+                            <img src="web/assets/img/portfolio/filmspleinair.jpg" class="img-responsive img-centered" alt="">
                             <p>Création et présentation d'une maquette pour une association de diffusion de films en plein air. Le but final étant de déterminer le nombre d'inscrits.</p>
                             <ul class="list-inline item-details">
                                 <li>Client :
@@ -344,7 +344,7 @@ require_once "../vendor/autoload.php";
                         <div class="modal-body">
                             <h2>Site vitrine personnel</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/ndep.png" class="img-responsive img-centered" alt="">
+                            <img src="web/assets/img/portfolio/ndep.png" class="img-responsive img-centered" alt="">
                             <p>Utilisation de toutes mes connaissances de l'époque pour la création d'un site vitrine personnel. L'objectif étant d'utiliser le parallax et le json.</p>
                             <ul class="list-inline item-details">
                                 <li>Client :
@@ -378,7 +378,7 @@ require_once "../vendor/autoload.php";
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/ecogamelab.png" class="img-responsive img-centered" alt="">
+                            <img src="web/assets/img/portfolio/ecogamelab.png" class="img-responsive img-centered" alt="">
                             <p>Intégration d'un site web via WordPress pour valider ma récente acquisition de cette compétence.</p>
                             <ul class="list-inline item-details">
                                 <li>Client :
@@ -400,20 +400,20 @@ require_once "../vendor/autoload.php";
     </div>
 
     <!-- jQuery -->
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="web/assets/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="web/assets/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="assets/js/jqBootstrapValidation.js"></script>
-    <script src="assets/js/contact_me.js"></script>
+    <script src="web/assets/js/jqBootstrapValidation.js"></script>
+    <script src="web/assets/js/contact_me.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="assets/js/freelancer.min.js"></script>
+    <script src="web/assets/js/freelancer.min.js"></script>
 
     </div>
 

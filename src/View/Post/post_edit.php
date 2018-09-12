@@ -4,7 +4,7 @@ $title  = 'Nicolas Depresles';
 ob_start();
 
     // Navbar
-    require '../src/View/navbar.php';
+    require 'src/View/navbar.php';
 
     /** @var \App\Entity\Post $post */
     if(isset($_SESSION['pseudo'])){
@@ -63,8 +63,8 @@ ob_start();
     }
 
     // Footer
-    require '../src/View/footer.php';
+    require 'src/View/footer.php';
 
 $content = ob_get_clean();
-include('..\src\View\template.php');
+include('src\View\template.php');
 ?>
