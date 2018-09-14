@@ -15,7 +15,7 @@ class AuthenticationController
      */
     public function getRegisterView()
     {
-        require "../src/View/Authentication/register.php";
+        require "src/View/Authentication/register.php";
     }
 
     /**
@@ -48,7 +48,7 @@ class AuthenticationController
      */
     public function getLogInView()
     {
-        require "../src/View/Authentication/log_in.php";
+        require "src/View/Authentication/log_in.php";
     }
 
     /**
@@ -72,6 +72,6 @@ class AuthenticationController
      */
     public function logOut()
     {
-        require "../src/View/Authentication/log_out.php";
+        require "src/View/Authentication/log_out.php";
     }
 }

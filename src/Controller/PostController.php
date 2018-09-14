@@ -18,7 +18,7 @@ class PostController
     {
         $postRepository = new PostRepository();
         $postList = $postRepository->getByLimit(0, 10);
-        require "../src/View/Post/post_index.php";
+        require "src/View/Post/post_index.php";
     }
 
     /**
@@ -31,7 +31,7 @@ class PostController
         if ($post){
             $commentRepository = new CommentRepository();
             $commentByDate = $commentRepository->getByDate($id);
-            require "../src/View/Post/post_show.php";
+            require "src/View/Post/post_show.php";
         } else {
             $controller = new ErrorController();
             $controller->error404();
@@ -43,7 +43,7 @@ class PostController
      */
     public function createPostView()
     {
-        require "../src/View/Post/post_create.php";
+        require "src/View/Post/post_create.php";
     }
 
     /**
@@ -70,7 +70,7 @@ class PostController
      */
     public function deletePostView()
     {
-        require "../src/View/Post/post_delete.php";
+        require "src/View/Post/post_delete.php";
     }
 
     /**
@@ -97,7 +97,9 @@ class PostController
         $fieldValues = new PostRepository();
         $post = $fieldValues->getById($id);
         $selectAuthors = $fieldValues->getAuthors();
-        require "../src/View/Post/post_edit.php";
+
+        require "src/View/Post/post_edit.php";
+
     }
 
     /**
@@ -126,7 +128,7 @@ class PostController
         $commentRepository = new CommentRepository();
         $commentList = $commentRepository->getByValidation();
         if ($commentList) {
-            require "../src/View/Administration/admin_space.php";
+            require "src/View/Administration/admin_space.php";
         }
     }
 }

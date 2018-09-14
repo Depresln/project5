@@ -15,7 +15,7 @@ class CommentController
      */
     public function addCommentView()
     {
-        require "../src/View/Comment/comment_add.php";
+        require "src/View/Comment/comment_add.php";
     }
 
     /**
@@ -40,7 +40,7 @@ class CommentController
      */
     public function deleteCommentView()
     {
-        require "../src/View/Comment/comment_delete.php";
+        require "src/View/Comment/comment_delete.php";
     }
 
     /**

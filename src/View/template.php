@@ -7,21 +7,21 @@
         <meta name="description" content="Nicolas Depresles - Développeur d'applications PHP/Symfony">
         <meta name="author" content="Nicolas Depresles">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="asssets/img/shortcon.png" type="image/x-icon"/>
-        <link rel="icon" href="assets/img/shortcon.png" type="image/x-icon"/>
+        <link rel="shortcut icon" href="web/asssets/img/shortcon.png" type="image/x-icon"/>
+        <link rel="icon" href="web/assets/img/shortcon.png" type="image/x-icon"/>
 
         <title><?= $title ?></title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="web/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Theme CSS -->
-        <link href="assets/css/freelancer.min.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="web/assets/css/freelancer.min.css" rel="stylesheet">
+        <link href="web/assets/css/style.css" rel="stylesheet">
 
 
         <!-- Custom Fonts -->
-        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="web/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 

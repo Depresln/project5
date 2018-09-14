@@ -4,7 +4,7 @@ $title  = 'Nicolas Depresles';
 ob_start();
 
     // Navbar
-    require '../src/View/navbar.php';
+    require 'src/View/navbar.php';
 
     echo "<p class='text-center margin-top'>Vous êtes sur le point de supprimer définitivement un post.</p><br />";
 
@@ -21,7 +21,7 @@ ob_start();
     <?php
 
     // Footer
-    require '../src/View/footer.php';
+    require 'src/View/footer.php';
 
 $content = ob_get_clean();
-include('..\src\View\template.php');
+include('src\View\template.php');

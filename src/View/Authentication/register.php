@@ -3,7 +3,7 @@ $title  = 'Nicolas Depresles';
 ob_start();
 ?>
 
-    <?php require '../src/View/navbar.php'; ?>
+    <?php require 'src/View/navbar.php'; ?>
 
     <div class="container margin-top margin-bot" align="center">
         <div class="row">
@@ -74,8 +74,8 @@ ob_start();
         </div>
     </div>
 
-    <?php require '../src/View/footer.php';
+    <?php require 'src/View/footer.php';
 
 $content = ob_get_clean();
-include('..\src\View\template.php');
+include('src\View\template.php');
 ?>
