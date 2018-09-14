@@ -124,17 +124,23 @@ class PostRepository extends DefaultRepository
 
     public function getAuthors()
     {
-        $select = 'SELECT pseudo';
-        $from = 'FROM user';
-        $where = 'WHERE is_admin = 1';
+        $select = 'SELECT u.pseudo';
+        $from = 'FROM user AS u';
+        $where = 'WHERE u.is_admin = 1';
+
         $requestString = $select . ' ' . $from . ' ' . $where;
 
         $req = $this->getDB()->prepare($requestString);
         $req->execute();
 
-        $authorList = $req->fetch();
+        $postList = [];
 
-        return $authorList;
+        while ($dataRow = $req->fetch()) {
+            $newPost = new Post($dataRow);
+            $postList[] = $newPost;
+        }
+
+        return $postList;
     }
 
     /**
@@ -143,10 +149,22 @@ class PostRepository extends DefaultRepository
      * @param $chapo
      * @param $content
      */
-    public function updatePost($id, $title, $chapo, $content)
+    public function updatePost($id, $title, $chapo, $content, $author)
     {
+        $select = 'SELECT u.id';
+        $from = 'FROM user AS u';
+        $where = 'WHERE u.pseudo = :author';
+        $requestString = $select . ' ' . $from . ' ' . $where;
+
+        $req = $this->getDB()->prepare($requestString);
+        $req->bindParam(':author', $author, PDO::PARAM_STR);
+        $req->execute();
+        $result = $req->fetch();
+        $resultAuthor = $result['id'];
+
+
         $update = 'UPDATE post';
-        $set = 'SET created_at = NOW(), title = :title, chapo = :chapo, content = :content';
+        $set = 'SET created_at = NOW(), title = :title, chapo = :chapo, content = :content, user_id = :author';
         $where = 'WHERE id = :id';
         $requestString = $update . ' ' . $set . ' ' . $where;
 
@@ -155,6 +173,7 @@ class PostRepository extends DefaultRepository
         $req->bindParam(':title', $title, PDO::PARAM_STR);
         $req->bindParam(':chapo', $chapo, PDO::PARAM_STR);
         $req->bindParam(':content', $content, PDO::PARAM_STR);
+        $req->bindParam(':author', $resultAuthor, PDO::PARAM_STR);
         $req->execute();
 
         session_start();

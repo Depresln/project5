@@ -99,7 +99,6 @@ class PostController
         $selectAuthors = $fieldValues->getAuthors();
 
         require "src/View/Post/post_edit.php";
-
     }
 
     /**
@@ -113,9 +112,9 @@ class PostController
             $title = htmlspecialchars($_POST['title']);
             $chapo = htmlspecialchars($_POST['chapo']);
             $content = htmlspecialchars($_POST['content']);
-//            $author= $_POST['author'];
+            $author = $_POST['pseudo'];
             $editPost = new PostRepository();
-            $editPost->updatePost($id, $title, $chapo, $content);
+            $editPost->updatePost($id, $title, $chapo, $content, $author);
             header("Location: ?page=post.index");
         }
     }

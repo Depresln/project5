@@ -41,10 +41,11 @@ ob_start();
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-                            <select name="author">
+                            <select name="pseudo">
                                 <?php
+                                /** @var \App\Entity\Post $selectAuthors */
                                 foreach ($selectAuthors as $author){
-                                    echo '<option value="' . $author . '">' . $author . '</option>';
+                                    echo '<option name="pseudo" value="' . $author->getPseudo() . '">' . $author->getPseudo() . '</option>';
                                 } ?>
                             </select>
                             <br />
