@@ -13,3 +13,13 @@
 .neg-margin {
     margin-bottom: -10%;
 }
+
+@media only screen and (max-width: 768px) {
+    .margin-top {
+        margin-top: 20%;
+    }
+
+    .neg-margin {
+        margin-bottom: -20%;
+    }
+}
