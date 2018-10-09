@@ -53,5 +53,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-include('src\View\template.php');
+include('src/View/template.php');
 ?>

@@ -115,7 +115,7 @@ require_once "vendor/autoload.php";
                     <p>Je suis Nicolas Depresles, un jeune développeur front-end de 24 ans. Je suis énormément attiré par le monde du web, passion que j'ai la chance de pouvoir vivre chaque jour. Fort de nombreuses compétences en développement web ainsi qu'en langues, marketing et communication, je me mets à votre disposition pour donner vie à vos idées quel que soit votre projet, quels que soient vos défis.</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="web/assets/cv 4.4.pdf" download class="btn btn-lg btn-outline">
+                    <a href="web/assets/CV 4.4.pdf" download class="btn btn-lg btn-outline">
                         <i class="fa fa-download"></i> Télécharger mon CV
                     </a>
                 </div>

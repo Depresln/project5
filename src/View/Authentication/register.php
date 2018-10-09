@@ -77,6 +77,6 @@ ob_start();
     <?php require 'src/View/footer.php';
 
 $content = ob_get_clean();
-include('src\View\template.php');
+include('src/View/template.php');
 ?>
 
